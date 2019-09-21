@@ -22,16 +22,14 @@ public class Player implements Entity {
 
     /**
      * Constructor
-     * @param x x position of player
-     * @param y y position of player
      * @param height height of player
      * @param width width of player
      * @param velocity velocity of player
+     * @param jump_height height of jump
      */
-    public Player(double x, double y, double height, double width, double velocity){
+    public Player(double height, double width, double velocity, double jump_height){
 
-        this.x = x;
-        this.y = y;
+
         this.height = height;
         this.width = width;
         this.velocity = velocity;
@@ -43,7 +41,7 @@ public class Player implements Entity {
         this.fall = false;
         this.right = false;
         this.left = false;
-        this.jump_height = 60;
+        this.jump_height = jump_height;
     }
 
     /**
@@ -121,6 +119,12 @@ public class Player implements Entity {
      */
     public Layer getLayer(){
         return this.layer;
+    }
+
+
+    public void setInitialPos(double x, double y){
+        this.x = x;
+        this.y = y;
     }
 
     /**

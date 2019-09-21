@@ -1,7 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f55a82bc-f3bb-4d33-9acf-6ac08f537a57" name="Default Changelist" comment="" />
+    <list default="true" id="f55a82bc-f3bb-4d33-9acf-6ac08f537a57" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/5.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.5.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.5.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.5.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Cloud.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Cloud.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Entity$Layer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Entity$Layer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/GameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/model/GameEngine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/GameEngineImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/model/GameEngineImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Level.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Level.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/LevelImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/model/LevelImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/view/BackgroundDrawer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/view/BackgroundDrawer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/view/BlockedBackground.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/view/BlockedBackground.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/view/EntityView.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/view/EntityView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/view/EntityViewImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/view/EntityViewImpl$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/view/EntityViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/view/EntityViewImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/view/GameWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/view/GameWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/view/KeyboardInputHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/view/KeyboardInputHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/Cloud.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/model/Cloud.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/GameEngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/model/GameEngineImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/model/Player.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,16 +67,20 @@
       <list>
         <option value="JavaFXApplication" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Arquillian JUnit Test Class" />
+        <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1Q549xVD09NtnN5HKH4sbGfCDNu" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
@@ -140,10 +176,25 @@
       <workItem from="1567760390331" duration="33133000" />
       <workItem from="1567912088534" duration="7919000" />
       <workItem from="1567929425346" duration="543000" />
+      <workItem from="1568941082195" duration="47000" />
+      <workItem from="1568941213402" duration="10061000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

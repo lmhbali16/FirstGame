@@ -22,9 +22,9 @@ public class Cloud implements Entity {
      * @param height Height of the CLoud
      * @param width Width of the Cloud
      * @param velocity Cloud velocity
-     * @param LevelWidth Width of the Level the Cloud is in
+     * @param levelWidth Width of the Level the Cloud is in
      */
-    public Cloud(double x, double y, double height, double width, double velocity, double LevelWidth){
+    public Cloud(double x, double y, double height, double width, double velocity, double levelWidth){
         this.x = x;
         this.y = y;
 
@@ -34,7 +34,7 @@ public class Cloud implements Entity {
 
         this.imagePath = "./src/main/resources/cloud_2.png";
         this.layer = Layer.BACKGROUND;
-        this.levelWidth = LevelWidth;
+        this.levelWidth = levelWidth;
     }
 
     /**
