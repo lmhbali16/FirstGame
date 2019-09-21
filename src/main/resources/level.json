@@ -1,0 +1,54 @@
+{
+  
+  "level":[
+
+  		{	
+  			"player": {
+  				"stickmanSize": "tiny",
+  				"stickmanVelocity": 4,
+	  			"stickmanJump": 30
+	  			
+  			},
+
+  			"field":{
+          "numCloud": 4,
+  				"cloudVelocity": 3.2,
+  				"levelHeight": 500,
+  				"levelWidth": 2000
+  			}
+	  	},
+
+	  	{
+	  		"player": {
+  				"stickmanSize": "normal",
+  				"stickmanVelocity": 4,
+	  			"stickmanJump": 50
+	  			
+  			},
+
+  			"field":{
+          "numCloud": 4,
+  				"cloudVelocity": 3.2,
+  				"levelHeight": 700,
+  				"levelWidth": 3000
+  			}
+	  		
+	  	},
+	  	{
+	  		"player": {
+  				"stickmanSize": "large",
+  				"stickmanVelocity": 4,
+	  			"stickmanJump": 20
+	  			
+  			},
+
+  			"field":{
+          "numCloud": 4,
+  				"cloudVelocity": 3.2,
+  				"levelHeight": 900,
+  				"levelWidth": 1000
+  			}
+	  	}
+  	]
+
+}
