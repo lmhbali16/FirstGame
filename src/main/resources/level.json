@@ -4,22 +4,26 @@
 
   		{	
   			"player": {
+          "life": 5,
   				"stickmanSize": "tiny",
-  				"stickmanVelocity": 4,
+  				"stickmanVelocity": 100,
 	  			"stickmanJump": 30
 	  			
   			},
 
   			"field":{
+          "start" : 10,
+          "finish": 1950,
           "numCloud": 4,
   				"cloudVelocity": 3.2,
-  				"levelHeight": 500,
+  				"levelHeight": 400,
   				"levelWidth": 2000
   			}
 	  	},
 
 	  	{
 	  		"player": {
+          "life": 5,
   				"stickmanSize": "normal",
   				"stickmanVelocity": 4,
 	  			"stickmanJump": 50
@@ -27,6 +31,8 @@
   			},
 
   			"field":{
+          "start" : 10,
+          "finish": 1950,
           "numCloud": 4,
   				"cloudVelocity": 3.2,
   				"levelHeight": 700,
@@ -36,6 +42,7 @@
 	  	},
 	  	{
 	  		"player": {
+          "life": 5,
   				"stickmanSize": "large",
   				"stickmanVelocity": 4,
 	  			"stickmanJump": 20
@@ -43,6 +50,8 @@
   			},
 
   			"field":{
+          "start" : 10,
+          "finish": 1950,
           "numCloud": 4,
   				"cloudVelocity": 3.2,
   				"levelHeight": 900,

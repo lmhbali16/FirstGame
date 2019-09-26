@@ -7,6 +7,9 @@ public interface Entity {
     double getHeight();
     double getWidth();
     Layer getLayer();
+    void collision(Entity A);
+
+    void setInitialPos(double x, double y);
 
     enum Layer{
         BACKGROUND, FOREGROUND, EFFECT

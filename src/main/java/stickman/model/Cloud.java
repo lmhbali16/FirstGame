@@ -4,7 +4,7 @@ package stickman.model;
  * @author SID:480133780
  */
 
-public class Cloud implements Entity {
+public class Cloud implements Object {
 
     private double x;
     private double y;
@@ -55,6 +55,12 @@ public class Cloud implements Entity {
         return this.height;
     }
 
+    public void setInitialPos(double x, double y){
+        this.x = x;
+        this.y = y;
+    }
+
+
     /**
      * Move the cloud object
      */
@@ -83,6 +89,12 @@ public class Cloud implements Entity {
             }
         }
     }
+
+    public void setLife(int life){}
+    public int getLife(){ return 0;}
+    public void collision(Entity A){}
+
+
 
     /**@return return the width of the Cloud*/
     public double getWidth(){

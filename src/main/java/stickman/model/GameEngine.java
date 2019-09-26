@@ -1,5 +1,7 @@
 package stickman.model;
 
+import java.util.Timer;
+
 public interface GameEngine {
     Level getCurrentLevel();
 
@@ -11,5 +13,11 @@ public interface GameEngine {
     boolean moveRight();
     boolean stopMoving();
 
+    void setSecond(double second);
+    double getSecond();
+    int getMinute();
+    void setMinute(int minute);
+
+    int getStatus();
     void tick();
 }

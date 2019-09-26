@@ -1,7 +1,12 @@
 package stickman.model;
 
+import javafx.application.Platform;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author SID:480133780
@@ -14,6 +19,13 @@ public class LevelImpl implements Level {
     private double levelWidth;
     private List<Entity> entityList;
     private Player player;
+    private String landscapeImage;
+    private boolean start;
+    private boolean finish;
+    private double finishLine;
+    private double startLine;
+
+
 
     /**
      * Constructor
@@ -22,14 +34,22 @@ public class LevelImpl implements Level {
      * @param levelWidth Width of Level
      * @param player The player
      */
-    public LevelImpl(double floorHeight, double levelHeight,double levelWidth, Player player){
+    public LevelImpl(double floorHeight, double levelHeight,double levelWidth,double startLine, double finishLine,Player player){
 
         this.floorHeight = floorHeight;
         this.levelHeight = levelHeight;
         this.levelWidth = levelWidth;
+        this.landscapeImage = "";
         this.player = player;
+        this.start = false;
+        this.finish = false;
         this.entityList = new ArrayList<>();
         this.entityList.add(player);
+
+        this.startLine = startLine;
+        this.finishLine = finishLine;
+
+
 
     }
 
@@ -39,8 +59,8 @@ public class LevelImpl implements Level {
      */
     public boolean moveRight(){
         this.player.setRight(true);
-        if(this.player.getXPos() + this.player.getVelocity() > this.levelWidth){
-            this.player.setXPos(true, this.levelWidth - this.player.getXPos());
+        if(this.player.getXPos()  >= this.levelWidth){
+            return false;
 
         } else{
             this.player.setXPos(true, this.player.getVelocity());
@@ -56,8 +76,8 @@ public class LevelImpl implements Level {
     public boolean moveLeft(){
         this.player.setLeft(true);
 
-        if(this.player.getXPos() - this.player.getVelocity() < 0){
-            this.player.setXPos(false, this.player.getXPos());
+        if(this.player.getXPos() <= 0){
+            return false;
 
         } else{
             this.player.setXPos(false, this.player.getVelocity());
@@ -99,12 +119,28 @@ public class LevelImpl implements Level {
      * Update the movement of Entities.
      */
     public void tick(){
+        if(player.getXPos() != startLine && !finish){
+            this.setStart(true);
+        }
+        if(player.getLife() <= 0 || finish){
+            this.setStart(false);
+        }
+
+        this.moveCloud();
+        this.movePlayer();
+    }
+
+    public void moveCloud(){
         for(int i = 0; i < entityList.size(); i ++){
             if(entityList.get(i) instanceof Cloud){
                 Cloud cloud = (Cloud) entityList.get(i);
                 cloud.move();
             }
         }
+    }
+
+    public void movePlayer(){
+
         if(player.getFall() || player.getJump()){
             player.setYPos();
         }
@@ -118,6 +154,23 @@ public class LevelImpl implements Level {
             this.stopMoving();
             this.moveLeft();
         }
+
+        if(this.getHeroX() >= finishLine){
+            this.setStart(false);
+            finish = true;
+        }
+    }
+
+    public void setStart(boolean start) {
+
+        this.start = start;
+
+    }
+
+
+
+    public void setLandscapeImage(String s){
+        this.landscapeImage = s;
     }
 
     /**
@@ -153,5 +206,17 @@ public class LevelImpl implements Level {
      */
     public List<Entity> getEntities(){
         return entityList;
+    }
+
+    public String getLandscapeImage(){return this.landscapeImage; }
+
+    public boolean getStart(){ return this.start; }
+
+    public int getHeroLife(){
+        return player.getLife();
+    }
+
+    public boolean getFinish(){
+        return finish;
     }
 }

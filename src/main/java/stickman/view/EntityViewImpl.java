@@ -24,7 +24,7 @@ public class EntityViewImpl implements EntityView {
 
         this.node = new ImageView(new File(imagePath).toURI().toString());
         node.setFitHeight(entity.getHeight());
-        node.setFitWidth(entity.getHeight());
+        node.setFitWidth(entity.getWidth());
         node.setX(entity.getXPos());
         node.setY(entity.getYPos());
 

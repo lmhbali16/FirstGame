@@ -19,6 +19,7 @@ public class Player implements Entity {
     private boolean left;
     private double jump_height;
     private double counter = 0;
+    private int life;
 
     /**
      * Constructor
@@ -132,6 +133,7 @@ public class Player implements Entity {
      * @param right boolean of going backwards or forward (true if forward).
      * @param velocity the speed which the player moves
      */
+
     public void setXPos(boolean right, double velocity){
         if(right && this.right){
             this.x += velocity * 0.017;
@@ -219,9 +221,22 @@ public class Player implements Entity {
             this.counter -= 1;
             if(this.counter == 0){
                 this.fall = false;
+                if(right){
+                    this.setRight(right);
+                }
+                else if(left){
+                    this.setLeft(left);
+                }
             }
         }
         return false;
+    }
+
+    public int getLife(){
+        return life;
+    }
+    public void setLife(int life){
+        this.life = life;
     }
 
     /**
@@ -229,7 +244,16 @@ public class Player implements Entity {
      * @param left boolean for moving back or not
      */
     public void setLeft(boolean left){
+
         this.left = left;
+
+        if(!this.left && (!jump && !fall)){
+            this.setStandImage("./src/main/resources/ch_stand5.png");
+        }
+    }
+
+    public void setStandImage(String s){
+        this.imagePath = s;
     }
 
     /**
@@ -238,5 +262,13 @@ public class Player implements Entity {
      */
     public void setRight(boolean right){
         this.right = right;
+        if(!right && (!jump && !fall)){
+            this.setStandImage("./src/main/resources/ch_stand2.png");
+        }
     }
+
+   public void collision(Entity A){
+
+   }
+
 }

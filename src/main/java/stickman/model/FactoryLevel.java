@@ -8,7 +8,7 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
+
 import java.util.List;
 import java.lang.Math;
 
@@ -38,9 +38,9 @@ public class FactoryLevel {
 
         if(obj_array != null){
 
-            Iterator<JSONObject> iter = obj_array.iterator();
-            while(iter.hasNext()){
-                Level temp = this.addLevel(iter.next());
+
+            for(int i = 0; i < obj_array.size();i++){
+                Level temp = this.addLevel((JSONObject) obj_array.get(i));
                 if(temp != null){
                     list_level.add(temp);
                 }
@@ -69,24 +69,32 @@ public class FactoryLevel {
         double floorHeight = 0;
         double levelHeight = 0;
         double levelWidth = 0;
+        double finish = 0;
+        double start = 0;
 
-        double x_player = 0;
-        double y_player = 0;
+
 
         levelHeight =Math.abs(((Long) obj.get("levelHeight")).doubleValue());
 
         levelWidth = Math.abs(((Long) obj.get("levelWidth")).doubleValue());
 
-        floorHeight = levelHeight * 0.25;
+        floorHeight = levelHeight * 0.15;
 
-        x_player = levelWidth * 0.01;
-        y_player = levelHeight - floorHeight * 0.75;
+        finish = Math.abs(((Long) obj.get("finish")).doubleValue());
+        start = Math.abs(((Long) obj.get("start")).doubleValue());
 
-        player.setInitialPos(x_player,y_player);
+        player.setInitialPos(start, levelHeight-floorHeight-player.getHeight());
 
-        Level lvl = new LevelImpl(floorHeight,levelHeight,levelWidth,player);
+
+        Level lvl = new LevelImpl(floorHeight,levelHeight,levelWidth,start, finish, player);
 
         this.addCloud(lvl, ((Long) obj.get("numCloud")).intValue(), (double) obj.get("cloudVelocity"));
+
+        this.setLevelLandscape(lvl);
+
+
+
+        this.addFinishLine(player.getHeight() * 2.5, finish, levelHeight-floorHeight-player.getHeight() * 2.5, lvl);
 
         return lvl;
     }
@@ -110,17 +118,19 @@ public class FactoryLevel {
 
         for(int i = 0; i < num; i++){
 
-            x_random = Math.random() * (1-0.075)+0.075;
-            y_random = Math.random() * (0.5-0.05)+0.05;
+            x_random = Math.random() * (levelWidth-0.075)+0.075;
+            y_random = Math.random() * (levelHeight*0.30- levelHeight * 0.05)+ levelHeight * 0.05;
 
-            height = Math.random() * (levelHeight * 0.33 - levelHeight * 0.05) + levelHeight * 0.05;
+            x = Math.round(x_random * 100.00) / 100.00;
+            y = Math.round(y_random * 100.00) / 100.00;
+
+            height = Math.random() * (150-50) + 50;
             height = Math.round(height * 100.00) / 100.00;
 
-            width = Math.random() * (levelWidth * 0.4 - levelWidth * 0.2) + levelWidth * 0.2;
+            width = Math.random() * (200 - 100) + 100;
+            width = Math.round(width* 100.00) / 100.00;
 
-            x = levelWidth * Math.round(x_random * 100.00) / 100.00;
 
-            y = levelHeight * Math.round(y_random * 100.00) / 100.00;
 
             cloud = new Cloud(x,y,height,width,velocity,levelWidth);
 
@@ -156,12 +166,45 @@ public class FactoryLevel {
 
         jump = Math.abs(((Long) obj.get("stickmanJump")).doubleValue());
 
-        return new Player(playerHeight,playerWidth,velocity,jump);
+        int life = Math.abs(((Long) obj.get("life")).intValue());
 
+        Player player = new Player(playerHeight,playerWidth,velocity,jump);
+        player.setLife(life);
+
+        return player;
+
+    }
+
+    public void  addFinishLine(double height, double x, double y, Level lvl){
+        Entity finish = new FinishLine(height,x,y);
+        lvl.getEntities().add(finish);
     }
 
     public List<Level> getLevels(){
         return this.list_level;
 
+    }
+
+    public void setLevelLandscape(Level lvl){
+        int random_number = (int) Math.round(Math.random() * (6-1) +1);
+
+        if(random_number == 1){
+            lvl.setLandscapeImage("landscape_0000_1_trees.png");
+        }
+        else if(random_number == 2){
+            lvl.setLandscapeImage("landscape_0001_2_trees.png");
+        }
+        else if(random_number == 3){
+            lvl.setLandscapeImage("landscape_0002_3_trees.png");
+        }
+        else if(random_number == 4){
+            lvl.setLandscapeImage("landscape_0003_4_mountain.png");
+        }
+        else if(random_number == 5){
+            lvl.setLandscapeImage("landscape_0004_5_clouds.png");
+        }
+        else{
+            lvl.setLandscapeImage("landscape_0005_6_background.png");
+        }
     }
 }

@@ -2,6 +2,7 @@ package stickman.view;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
@@ -9,6 +10,8 @@ import stickman.model.Entity;
 import stickman.model.GameEngine;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class GameWindow {
 
@@ -18,6 +21,8 @@ public class GameWindow {
     private GameEngine model;
     private List<EntityView> entityViews;
     private BackgroundDrawer backgroundDrawer;
+    private Timeline timeline;
+
 
     private double xViewportOffset = 0.0;
     private static final double VIEWPORT_MARGIN = 280.0;
@@ -55,11 +60,13 @@ public class GameWindow {
      * Draw the game every 17 millisecond
      */
     public void run() {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(17),
+        timeline = new Timeline(new KeyFrame(Duration.millis(17),
                 t -> this.draw()));
 
         timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.setRate(-1);
         timeline.play();
+
 
     }
 
@@ -67,7 +74,11 @@ public class GameWindow {
      * Draw the game with entities
      */
     private void draw() {
+
+
         this.model.tick();
+
+
 
         List<Entity> entities = this.model.getCurrentLevel().getEntities();
 
@@ -92,7 +103,8 @@ public class GameWindow {
             this.xViewportOffset += heroXPos - (this.width - this.VIEWPORT_MARGIN);
         }
 
-        this.backgroundDrawer.update(this.xViewportOffset);
+        this.backgroundDrawer.update(model.getMinute(), model.getSecond());
+        this.updateTime();
 
         for (Entity entity : entities) {
             boolean notFound = true;
@@ -117,5 +129,31 @@ public class GameWindow {
             }
         }
         this.entityViews.removeIf(EntityView::isMarkedForDelete);
+
+
     }
+
+    public void updateTime(){
+        if(model.getCurrentLevel().getStart()){
+            model.setSecond(model.getSecond() + timeline.getCurrentTime().toSeconds());
+            if(model.getSecond() >= 60){
+                model.setMinute(model.getMinute()+1);
+                model.setSecond(0);
+            }
+        }
+    }
+    public int checkStatus(){
+        boolean lvl_status = model.getCurrentLevel().getStart();
+        if(model.getStatus() == -1 && !lvl_status){
+            backgroundDrawer.gameOver(false);
+            return -1;
+        }
+        else if(model.getStatus()== 1 && !lvl_status){
+            backgroundDrawer.gameOver(true);
+            return 1;
+        }
+        return 0;
+    }
+
+
 }
