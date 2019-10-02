@@ -1,5 +1,8 @@
 package stickman.model;
 
+import stickman.Entity.Enemy;
+import stickman.Entity.Entity;
+
 import java.util.List;
 
 public interface Level {
@@ -17,6 +20,7 @@ public interface Level {
     boolean getStart();
     void setStart(boolean start);
     boolean getFinish();
+    List<Enemy> getEnemyList();
 
     int getHeroLife();
 

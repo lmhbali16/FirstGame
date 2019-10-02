@@ -6,37 +6,38 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/gc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/gc.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.5.1/gc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5.1/gc.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Cloud.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Cloud.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Entity$Layer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Entity$Layer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Cloud.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Entity$Layer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Entity.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/FactoryLevel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/model/FactoryLevel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/GameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/model/GameEngine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/GameEngineImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/model/GameEngineImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/FinishLine.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Level.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Level.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/LevelImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/model/LevelImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Movable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Object.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/view/BackgroundDrawer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/view/BackgroundDrawer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/view/BlockedBackground.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/view/BlockedBackground.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/view/EntityView.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/view/EntityView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/view/EntityViewImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/view/EntityViewImpl$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/view/EntityViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/view/EntityViewImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/view/GameWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/view/GameWindow.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/level.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/level.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/Cloud.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/model/Cloud.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/model/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/Cloud.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/Entity/Cloud.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/Entity/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/Entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/FactoryLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/model/FactoryLevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/model/GameEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/GameEngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/model/GameEngineImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/FinishLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/Entity/FinishLine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/model/Level.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/LevelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/model/LevelImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/Object.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/view/BackgroundDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/view/BackgroundDrawer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/view/BlockedBackground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/view/BlockedBackground.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/view/EntityView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/view/EntityView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stickman/view/EntityViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/view/EntityViewImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stickman/view/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/view/GameWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/level.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/level.json" afterDir="false" />
@@ -74,8 +75,8 @@
       <list>
         <option value="JavaFXApplication" />
         <option value="Arquillian JUnit Test Class" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -106,6 +107,11 @@
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="stickman.model" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="stickman.model" />
+      <recent name="stickman.Entity" />
+      <recent name="stickman.Strategy" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -195,7 +201,8 @@
       <workItem from="1569328750208" duration="3453000" />
       <workItem from="1569364921641" duration="251000" />
       <workItem from="1569369580728" duration="3007000" />
-      <workItem from="1569385207858" duration="15603000" />
+      <workItem from="1569385207858" duration="42578000" />
+      <workItem from="1569935454269" duration="16111000" />
     </task>
     <task id="LOCAL-00001" summary="Added FactoryLevel to create more levels and adjusted the design accordingly">
       <created>1569040119088</created>

@@ -1,7 +1,7 @@
 package stickman.view;
 
 import javafx.scene.Node;
-import stickman.model.Entity;
+import stickman.Entity.Entity;
 
 public interface EntityView {
     void update(double xViewportOffset);

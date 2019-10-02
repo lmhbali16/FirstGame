@@ -24,7 +24,7 @@ public class App extends Application {
                     " as your code will fail to compile on Java 10 and below.");
         }
         GameEngine model = new GameEngineImpl("level.json");
-        GameWindow window = new GameWindow(model, 640, 400);
+        GameWindow window = new GameWindow(model, 720, 400);
         window.run();
 
         primaryStage.setTitle("Stickman");

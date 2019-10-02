@@ -1,5 +1,7 @@
 package stickman.model;
 
+import stickman.Entity.Entity;
+
 /**
  * @author SID:480133780
  */
@@ -20,6 +22,9 @@ public class Player implements Entity {
     private double jump_height;
     private double counter = 0;
     private int life;
+    private double floorHeight;
+    private double jumpVelocity;
+
 
     /**
      * Constructor
@@ -28,13 +33,12 @@ public class Player implements Entity {
      * @param velocity velocity of player
      * @param jump_height height of jump
      */
-    public Player(double height, double width, double velocity, double jump_height){
+    public Player(double height, double width, double velocity, double jump_height, double jumpVelocity){
 
-
+        this.jumpVelocity = jumpVelocity;
         this.height = height;
         this.width = width;
         this.velocity = velocity;
-
         this.imagePath = "./src/main/resources/ch_stand1.png";
         this.layer = Layer.FOREGROUND;
 
@@ -136,17 +140,21 @@ public class Player implements Entity {
 
     public void setXPos(boolean right, double velocity){
         if(right && this.right){
-            this.x += velocity * 0.017;
+
             if(this.jump || this.fall){
+                this.x += velocity * 0.017-velocity*0.007;
                 return;
             }
+            this.x += velocity * 0.017;
             this.updateImageRight();
 
         } else if(!right && this.left){
-            this.x -= velocity * 0.017;
+
             if(this.jump || this.fall){
+                this.x -= (velocity*0.017-velocity*0.007);
                 return;
             }
+            this.x -= velocity * 0.017;
             this.updateImageLeft();
         }
     }
@@ -199,35 +207,37 @@ public class Player implements Entity {
     public boolean setYPos(){
 
         if(!this.jump && !this.fall){
-            if(this.y != 0){
-                this.jump = true;
-                this.y -= 1;
-                this.counter += 1;
-                return true;
-            }
+            this.jump = true;
+            this.y -= 1;
+            this.counter += 1;
+            return true;
+
         } else if(this.jump && !this.fall){
-            if(this.jump_height == this.counter || this.y == 0){
+            if(this.jump_height <= this.counter){
                 this.jump = false;
                 this.fall = true;
                 this.y += 1;
                 this.counter -= 1;
 
-            } else if(this.counter < this.jump_height && 0 < y){
+            } else if(this.counter < this.jump_height){
                 this.y -= 1;
                 this.counter += 1;
             }
         } else if(!jump && fall){
-            this.y += 1;
-            this.counter -= 1;
-            if(this.counter == 0){
+
+            if(this.y+this.height == floorHeight){
                 this.fall = false;
+                counter = 0;
                 if(right){
                     this.setRight(right);
                 }
                 else if(left){
                     this.setLeft(left);
                 }
+                return false;
             }
+            this.y += 1;
+            this.counter -= 1;
         }
         return false;
     }
@@ -250,6 +260,9 @@ public class Player implements Entity {
         if(!this.left && (!jump && !fall)){
             this.setStandImage("./src/main/resources/ch_stand5.png");
         }
+        else if(this.left && (jump || fall)){
+            this.setStandImage("./src/main/resources/ch_stand5.png");
+        }
     }
 
     public void setStandImage(String s){
@@ -265,10 +278,27 @@ public class Player implements Entity {
         if(!right && (!jump && !fall)){
             this.setStandImage("./src/main/resources/ch_stand2.png");
         }
+        else if(this.right && (jump || fall)){
+            this.setStandImage("./src/main/resources/ch_stand2.png");
+        }
+    }
+    public double getJumphHight(){
+        return jump_height;
     }
 
-   public void collision(Entity A){
+    public void setJump(boolean jump){
+        this.jump = jump;
+    }
 
-   }
+    public void setFall(boolean fall){
+        this.fall = fall;
+    }
 
+    public void setFloorHeight(double floorHeight){
+        this.floorHeight = floorHeight;
+    }
+
+    public void setCounter(int counter){
+        this.counter = counter;
+    }
 }

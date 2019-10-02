@@ -4,6 +4,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import stickman.Entity.*;
+import stickman.Strategy.*;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -71,38 +73,45 @@ public class FactoryLevel {
         double levelWidth = 0;
         double finish = 0;
         double start = 0;
+        int enemy = 0;
+        int wall = 0;
 
 
-
-        levelHeight =Math.abs(((Long) obj.get("levelHeight")).doubleValue());
-
-        levelWidth = Math.abs(((Long) obj.get("levelWidth")).doubleValue());
-
+        enemy = Integer.parseInt(obj.get("enemy").toString());
+        levelHeight = Double.parseDouble(obj.get("levelHeight").toString());
+        levelWidth = Double.parseDouble(obj.get("levelWidth").toString());
         floorHeight = levelHeight * 0.15;
-
-        finish = Math.abs(((Long) obj.get("finish")).doubleValue());
-        start = Math.abs(((Long) obj.get("start")).doubleValue());
+        finish = Double.parseDouble(obj.get("finish").toString());
+        start = Double.parseDouble(obj.get("start").toString());
+        wall = Integer.parseInt(obj.get("wall").toString());
 
         player.setInitialPos(start, levelHeight-floorHeight-player.getHeight());
-
+        player.setFloorHeight(levelHeight-floorHeight);
 
         Level lvl = new LevelImpl(floorHeight,levelHeight,levelWidth,start, finish, player);
 
-        this.addCloud(lvl, ((Long) obj.get("numCloud")).intValue(), (double) obj.get("cloudVelocity"));
-
+        this.addCloud(lvl, Integer.parseInt(obj.get("numCloud").toString()), Double.parseDouble(obj.get("cloudVelocity").toString()));
         this.setLevelLandscape(lvl);
-
-
-
         this.addFinishLine(player.getHeight() * 2.5, finish, levelHeight-floorHeight-player.getHeight() * 2.5, lvl);
+        this.addEnemy(lvl, enemy, player);
+        this.addWall(lvl, player, finish, wall);
 
         return lvl;
     }
 
+    public void addWall(Level lvl, Player player, double finish, int stategy){
+        if(stategy == 0){
+            WallStrategy wallStrategy = new WallBasic();
+            wallStrategy.addWall(lvl,player,finish);
+        }
+
+    }
+
+
+
     public void addCloud(Level lvl, int num, double v){
 
         double levelHeight = lvl.getHeight();
-        double floorHeight = lvl.getFloorHeight();
         double levelWidth = lvl.getWidth();
 
         Cloud cloud = null;
@@ -161,14 +170,14 @@ public class FactoryLevel {
             playerWidth = 75;
         }
 
+        double jumpVelocity = Math.abs(Double.parseDouble(obj.get("jumpVelocity").toString()));
+        velocity = Math.abs((Double.parseDouble(obj.get("stickmanVelocity").toString())));
 
-        velocity = Math.abs(((Long) obj.get("stickmanVelocity")).doubleValue());
+        jump = Math.abs(Double.parseDouble(obj.get("stickmanJump").toString()));
 
-        jump = Math.abs(((Long) obj.get("stickmanJump")).doubleValue());
+        int life = Math.abs(Integer.parseInt(obj.get("life").toString()));
 
-        int life = Math.abs(((Long) obj.get("life")).intValue());
-
-        Player player = new Player(playerHeight,playerWidth,velocity,jump);
+        Player player = new Player(playerHeight,playerWidth,velocity,jump, jumpVelocity);
         player.setLife(life);
 
         return player;
@@ -178,6 +187,84 @@ public class FactoryLevel {
     public void  addFinishLine(double height, double x, double y, Level lvl){
         Entity finish = new FinishLine(height,x,y);
         lvl.getEntities().add(finish);
+    }
+
+    public void addEnemy(Level lvl, int enemy, Player player){
+
+        for(int i = 0; i < enemy; i++){
+            int randomNumber = (int) Math.round(Math.random() * (5-1) +1);
+            double x = Math.round(Math.random() * (lvl.getWidth() - (player.getXPos()+ 10)) * 100.00)/100.00;
+            double y = Math.round(Math.random() * (lvl.getHeight() - (player.getYPos()- 10)) * 100.00)/100.00;
+
+            if(randomNumber == 1){
+                double height = player.getHeight();
+                double width = height/3*4;
+                int life = 1;
+                String path = "./src/main/resources/slimeBa.png";
+
+                Enemy enemyObj = new Enemy(height,width,life,path);
+                EnemyStrat strat = new BlueEnemy(lvl.getHeight()-lvl.getFloorHeight(), lvl.getWidth() ,enemyObj);
+                enemyObj.createStrategy(strat);
+                enemyObj.setInitialPos(x,y);
+                lvl.getEnemyList().add(enemyObj);
+                lvl.getEntities().add(enemyObj);
+
+            }
+            else if(randomNumber == 2){
+                double height = player.getHeight()/2;
+                double width = height/3*4;
+                int life = 2;
+                String path = "./src/main/resources/slimeGa.png";
+
+                Enemy enemyObj = new Enemy(height,width,life,path);
+                EnemyStrat strat = new GreenEnemy(lvl.getHeight()-lvl.getFloorHeight(), lvl.getWidth() ,enemyObj);
+                enemyObj.createStrategy(strat);
+                enemyObj.setInitialPos(x,y);
+                lvl.getEnemyList().add(enemyObj);
+                lvl.getEntities().add(enemyObj);
+
+            }
+            else if(randomNumber == 3){
+                double height = player.getHeight()*0.75;
+                double width = height/3*4;
+                int life = 1;
+                String path = "./src/main/resources/slimePa.png";
+
+                Enemy enemyObj = new Enemy(height,width,life,path);
+                EnemyStrat strat = new PurpleEnemy(lvl.getHeight()-lvl.getFloorHeight(), lvl.getWidth() ,enemyObj);
+                enemyObj.createStrategy(strat);
+                enemyObj.setInitialPos(x,y);
+                lvl.getEnemyList().add(enemyObj);
+                lvl.getEntities().add(enemyObj);
+
+            }
+            else if(randomNumber == 4){
+                double height = 30;
+                double width = height/3*4;
+                int life = 2;
+                String path = "./src/main/resources/slimeRa.png";
+
+                Enemy enemyObj = new Enemy(height,width,life,path);
+                EnemyStrat strat = new RedEnemy(lvl.getHeight()-lvl.getFloorHeight(), lvl.getWidth() ,enemyObj);
+                enemyObj.createStrategy(strat);
+                enemyObj.setInitialPos(x,y);
+                lvl.getEnemyList().add(enemyObj);
+                lvl.getEntities().add(enemyObj);
+            }
+            else{
+                double height = player.getHeight()*1.5;
+                double width = height/3*4;
+                int life = 3;
+                String path = "./src/main/resources/slimeYa.png";
+
+                Enemy enemyObj = new Enemy(height,width,life,path);
+                EnemyStrat strat = new YellowEnemy(lvl.getHeight()-lvl.getFloorHeight(), lvl.getWidth() ,enemyObj);
+                enemyObj.createStrategy(strat);
+                enemyObj.setInitialPos(x,y);
+                lvl.getEnemyList().add(enemyObj);
+                lvl.getEntities().add(enemyObj);
+            }
+        }
     }
 
     public List<Level> getLevels(){

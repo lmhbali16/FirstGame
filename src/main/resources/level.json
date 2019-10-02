@@ -7,17 +7,20 @@
           "life": 5,
   				"stickmanSize": "tiny",
   				"stickmanVelocity": 100,
-	  			"stickmanJump": 30
+          "jumpVelocity": 600,
+	  			"stickmanJump": 100
 	  			
   			},
 
   			"field":{
+          "enemy": 10,
           "start" : 10,
           "finish": 1950,
           "numCloud": 4,
   				"cloudVelocity": 3.2,
-  				"levelHeight": 400,
-  				"levelWidth": 2000
+  				"levelHeight": 400.5,
+  				"levelWidth": 4000.0,
+          "wall": 0
   			}
 	  	},
 
@@ -26,36 +29,42 @@
           "life": 5,
   				"stickmanSize": "normal",
   				"stickmanVelocity": 4,
-	  			"stickmanJump": 50
+          "jumpVelocity": 30,
+	  			"stickmanJump": 80
 	  			
   			},
 
   			"field":{
+          "enemy": 10,
           "start" : 10,
           "finish": 1950,
           "numCloud": 4,
   				"cloudVelocity": 3.2,
-  				"levelHeight": 700,
-  				"levelWidth": 3000
+  				"levelHeight": 400,
+  				"levelWidth": 5000,
+          "wall": 0
   			}
 	  		
 	  	},
 	  	{
 	  		"player": {
           "life": 5,
+          "jumpVelocity": 30,
   				"stickmanSize": "large",
   				"stickmanVelocity": 4,
-	  			"stickmanJump": 20
+	  			"stickmanJump": 70
 	  			
   			},
 
   			"field":{
+          "enemy": 10,
           "start" : 10,
           "finish": 1950,
           "numCloud": 4,
   				"cloudVelocity": 3.2,
-  				"levelHeight": 900,
-  				"levelWidth": 1000
+  				"levelHeight": 400,
+  				"levelWidth": 10000,
+          "wall": 0
   			}
 	  	}
   	]

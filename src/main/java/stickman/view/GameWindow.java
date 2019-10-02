@@ -6,12 +6,10 @@ import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
-import stickman.model.Entity;
+import stickman.Entity.Entity;
 import stickman.model.GameEngine;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class GameWindow {
 
@@ -22,6 +20,7 @@ public class GameWindow {
     private List<EntityView> entityViews;
     private BackgroundDrawer backgroundDrawer;
     private Timeline timeline;
+    private double finish;
 
 
     private double xViewportOffset = 0.0;
@@ -47,6 +46,8 @@ public class GameWindow {
 
         this.backgroundDrawer = new BlockedBackground();
         backgroundDrawer.draw(model, pane);
+
+        finish = 0;
     }
 
     /**
@@ -64,7 +65,6 @@ public class GameWindow {
                 t -> this.draw()));
 
         timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.setRate(-1);
         timeline.play();
 
 
@@ -74,10 +74,7 @@ public class GameWindow {
      * Draw the game with entities
      */
     private void draw() {
-
-
         this.model.tick();
-
 
 
         List<Entity> entities = this.model.getCurrentLevel().getEntities();
@@ -130,6 +127,15 @@ public class GameWindow {
         }
         this.entityViews.removeIf(EntityView::isMarkedForDelete);
 
+        if(model.getCurrentLevel().getFinish()){
+            backgroundDrawer.gameOver(true);
+            if(finish > 1.5){
+                Platform.exit();
+            }
+            else{
+                finish+= timeline.getCurrentTime().toSeconds();
+            }
+        }
 
     }
 
@@ -154,6 +160,8 @@ public class GameWindow {
         }
         return 0;
     }
+
+
 
 
 }

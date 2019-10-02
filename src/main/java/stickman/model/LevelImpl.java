@@ -1,12 +1,11 @@
 package stickman.model;
 
-import javafx.application.Platform;
+import stickman.Entity.Cloud;
+import stickman.Entity.Enemy;
+import stickman.Entity.Entity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author SID:480133780
@@ -18,12 +17,14 @@ public class LevelImpl implements Level {
     private double levelHeight;
     private double levelWidth;
     private List<Entity> entityList;
+    private List<Enemy> enemyList;
     private Player player;
     private String landscapeImage;
     private boolean start;
     private boolean finish;
     private double finishLine;
     private double startLine;
+    private CollisionHandler collisionHandler;
 
 
 
@@ -44,8 +45,9 @@ public class LevelImpl implements Level {
         this.start = false;
         this.finish = false;
         this.entityList = new ArrayList<>();
+        this.enemyList = new ArrayList<>();
         this.entityList.add(player);
-
+        this.collisionHandler = new CollisionHandler(levelHeight-floorHeight);
         this.startLine = startLine;
         this.finishLine = finishLine;
 
@@ -128,6 +130,15 @@ public class LevelImpl implements Level {
 
         this.moveCloud();
         this.movePlayer();
+        this.moveEnemy();
+        this.handleCollision();
+
+    }
+
+    public void moveEnemy(){
+        for(int i = 0; i < enemyList.size(); i++){
+            enemyList.get(i).move();
+        }
     }
 
     public void moveCloud(){
@@ -141,7 +152,11 @@ public class LevelImpl implements Level {
 
     public void movePlayer(){
 
-        if(player.getFall() || player.getJump()){
+        if(!player.getFall() && player.getJump()){
+            player.setYPos();
+        }
+
+        else if(player.getFall() && !player.getJump()){
             player.setYPos();
         }
 
@@ -165,6 +180,11 @@ public class LevelImpl implements Level {
 
         this.start = start;
 
+    }
+
+    public void handleCollision(){
+        this.collisionHandler.handleObjectCollision(this.entityList);
+        this.collisionHandler.handlePlayerCollision(this.player, entityList);
     }
 
 
@@ -218,5 +238,9 @@ public class LevelImpl implements Level {
 
     public boolean getFinish(){
         return finish;
+    }
+
+    public List<Enemy> getEnemyList(){
+        return enemyList;
     }
 }

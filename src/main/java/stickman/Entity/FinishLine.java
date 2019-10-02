@@ -1,4 +1,6 @@
-package stickman.model;
+package stickman.Entity;
+
+import stickman.Entity.Entity;
 
 public class FinishLine implements Entity {
 

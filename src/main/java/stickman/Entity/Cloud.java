@@ -1,10 +1,10 @@
-package stickman.model;
+package stickman.Entity;
 
 /**
  * @author SID:480133780
  */
 
-public class Cloud implements Object {
+public class Cloud implements Entity {
 
     private double x;
     private double y;
@@ -12,7 +12,7 @@ public class Cloud implements Object {
     private double width;
     private double velocity;
     private String imagePath;
-    private Entity.Layer layer;
+    private Layer layer;
     private double levelWidth;
 
     /**
@@ -110,4 +110,7 @@ public class Cloud implements Object {
     public String getImagePath(){
         return this.imagePath;
     }
+
+
+
 }
