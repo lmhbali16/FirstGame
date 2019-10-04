@@ -148,18 +148,7 @@ public class GameWindow {
             }
         }
     }
-    public int checkStatus(){
-        boolean lvl_status = model.getCurrentLevel().getStart();
-        if(model.getStatus() == -1 && !lvl_status){
-            backgroundDrawer.gameOver(false);
-            return -1;
-        }
-        else if(model.getStatus()== 1 && !lvl_status){
-            backgroundDrawer.gameOver(true);
-            return 1;
-        }
-        return 0;
-    }
+
 
 
 

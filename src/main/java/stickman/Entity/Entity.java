@@ -1,5 +1,7 @@
 package stickman.Entity;
 
+import javafx.scene.image.ImageView;
+
 public interface Entity {
     String getImagePath();
     double getXPos();
@@ -10,6 +12,8 @@ public interface Entity {
 
 
     void setInitialPos(double x, double y);
+
+    ImageView getNode();
 
     enum Layer{
         BACKGROUND, FOREGROUND, EFFECT

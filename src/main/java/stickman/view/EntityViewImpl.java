@@ -22,9 +22,10 @@ public class EntityViewImpl implements EntityView {
         this.entity = entity;
         this.imagePath = entity.getImagePath();
 
-        this.node = new ImageView(new File(imagePath).toURI().toString());
+        this.node = entity.getNode();
         node.setFitHeight(entity.getHeight());
-        node.setFitWidth(entity.getWidth());
+
+        node.setPreserveRatio(true);
         node.setX(entity.getXPos());
         node.setY(entity.getYPos());
 
@@ -86,7 +87,7 @@ public class EntityViewImpl implements EntityView {
         node.setX(entity.getXPos() - xViewportOffset);
         node.setY(entity.getYPos());
         node.setFitHeight(entity.getHeight());
-        node.setFitWidth(entity.getWidth());
+
         node.setPreserveRatio(true);
         delete = false;
     }
@@ -98,4 +99,5 @@ public class EntityViewImpl implements EntityView {
     public void markForDelete() {
         this.delete = true;
     }
+
 }

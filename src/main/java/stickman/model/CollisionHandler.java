@@ -7,113 +7,127 @@ import java.util.List;
 public class CollisionHandler {
 
     private double floorHeight;
+    private List<Entity> entityList;
+    private List<Enemy> enemyList;
 
-    public CollisionHandler(double floorHeight){
+    public CollisionHandler(double floorHeight, List<Entity> entityList, List<Enemy> enemyList){
         this.floorHeight = floorHeight;
+        this.enemyList = enemyList;
+        this.entityList = entityList;
+
     }
 
-    public void handleObjectCollision(List<Entity> entities){
+
+    public void handleEnemyCollision(Player player){
 
     }
 
-    public void handlePlayerCollision(Player player, List<Entity> entities){
+    public void handleWallCollision(Player player){
 
-        Wall wall = null;
-        boolean flag = false;
-
-        for(int i = 0; i < entities.size(); i++){
-            if(entities.get(i) instanceof Wall){
-                if(this.checkWall(player,(Wall) entities.get(i))){
-                    wall = (Wall) entities.get(i);
-                    break;
-                }
+        for(int i = 0; i < entityList.size(); i++){
+            if(this.checkWall(player,entityList.get(i))){
+                this.actionWall(player,(Wall) entityList.get(i));
+                break;
             }
         }
 
-        if(wall != null){
-            flag = this.collisionWall(player,wall);
+        if(player.getYPos()+player.getHeight() < floorHeight && !player.getFall() && !player.getJump()){
+            player.setFall(true);
+            player.setJump(false);
         }
+    }
 
-        if(!flag){
-            if(player.getYPos()+player.getHeight() < floorHeight && !player.getJump()){
-                player.setFall(true);
+    public void actionWall(Player player, Wall wall){
+        double playerPos = player.getXPos()+player.getWidth();
+        double wallPos = wall.getXPos() + wall.getWidth();
+
+        double playerH = player.getYPos()+player.getHeight();
+        double wallH = wall.getYPos()+wall.getHeight();
+        int state = this.checkWallState(player, wall);
+        
+        if(state == 1){
+            if(player.getFall()){
+
+                player.setInitialPos(player.getXPos(), wall.getYPos()- player.getHeight());
+                player.setFall(false);
                 player.setJump(false);
             }
         }
-
-    }
-
-    public boolean checkWall(Player player,Wall wall){
-        if(player.getXPos()+player.getWidth() >= wall.getXPos() && player.getXPos() <= wall.getXPos()+wall.getWidth()){
-            return true;
-        }
-
-        return false;
-    }
-
-    public boolean collisionWall(Player player, Wall wall){
-        if(player.getHeight()+player.getYPos() == wall.getYPos()){
-            player.setJump(false);
-            player.setFall(false);
-            player.setCounter(0);
-            return true;
-        }
-        else if(player.getYPos() == wall.getYPos() + wall.getHeight()){
-            player.setJump(false);
+        else if(state == 2){
+            player.setInitialPos(player.getXPos(), wallH);
             player.setFall(true);
-            return true;
+            player.setJump(false);
+        }
+        else if(state == -1){
+            player.setInitialPos(wall.getXPos()-player.getWidth(), player.getYPos());
+        }
+        else if(state == -2){
+            player.setInitialPos(wallPos,player.getYPos());
         }
 
-        /*if(player.getXPos() <= wall.getXPos()+wall.getWidth() && player.getXPos()+player.getWidth() >= wall.getXPos()+wall.getWidth()){
-            double playerPos = player.getYPos()+player.getHeight();
-            double wallPos = wall.getYPos()+wall.getHeight();
 
-            if(player.getYPos() <= wall.getYPos() && playerPos>= wallPos){
-                player.setInitialPos(wallPos,player.getYPos());
-                return true;
-            }
-            else if(playerPos <= wallPos && playerPos<= wall.getYPos()){
-                player.setInitialPos(wall.getXPos()+wall.getWidth(),player.getYPos());
-                return true;
-            }
-            else if(player.getYPos() <= wallPos && player.getYPos()>=wall.getYPos()){
-                player.setInitialPos(wall.getXPos()+wall.getWidth(),player.getYPos());
-                return true;
-            }
-            else if(player.getYPos()>= wall.getYPos() && playerPos <= wallPos){
-                player.setInitialPos(wall.getXPos()+wall.getWidth(),player.getYPos());
-                return true;
-            }
+    }
 
+    //return 1 if he is on the wall
+    // 2 if he is right under the wall
+    //0 if no contact
+    //-1 if he is right next to the wall from the left
+    //-2 if he is next to the wall from the right
+    public int checkWallState(Player player, Wall wall){
+        double playerPos = player.getXPos()+player.getWidth();
+        double wallPos = wall.getXPos() + wall.getWidth();
+
+        double playerH = player.getYPos()+player.getHeight();
+        double wallH = wall.getYPos()+wall.getHeight();
+
+        if(playerPos > wall.getXPos() && player.getXPos() < wallPos){
+            if(playerH >= wall.getYPos() && player.getYPos() < wall.getYPos()){
+                return 1;
+            }
+            else if(player.getYPos()<= wallH && playerH > wallH){
+                return 2;
+            }
         }
 
-        else if(player.getXPos()+player.getWidth() >= wall.getXPos() && player.getXPos() < wall.getXPos()){
-            double playerPos = player.getYPos()+player.getHeight();
-            double wallPos = wall.getYPos()+wall.getHeight();
-
-            if(player.getYPos() <= wall.getYPos() && playerPos>= wallPos){
-                player.setInitialPos(wall.getXPos()-player.getWidth(),player.getYPos());
-                return true;
+        /*if(playerPos >= wall.getXPos() && player.getXPos() < wall.getXPos()){
+            if(player.getYPos() >= wall.getYPos() && player.getYPos() <= wallH){
+                return -1;
             }
-            else if(player.getHeight()+player.getYPos() <= wallPos && playerPos<= wall.getYPos()){
-                player.setInitialPos(wall.getXPos()-player.getWidth(),player.getYPos());
-                return true;
+            else if(player.getYPos() <= wall.getYPos() && playerH >= wallH){
+                return -1;
             }
-            else if(player.getYPos() <= wallPos && player.getYPos()>=wall.getYPos()){
-                player.setInitialPos(wall.getXPos()-player.getWidth(),player.getYPos());
-                return true;
+            else if(playerH >= wall.getYPos()+wall.getHeight()/2 && player.getYPos() < wall.getYPos()){
+                return -1;
             }
-            else if(player.getYPos()>= wall.getYPos() && playerPos <= wallPos){
-                player.setInitialPos(wall.getXPos()-player.getWidth(),player.getYPos());
-                return true;
+        }
+        else if(player.getXPos() <= wallPos && playerPos > wallPos){
+            if(player.getYPos() >= wall.getYPos() && player.getYPos() <= wallH){
+                return -2;
+            }
+            else if(player.getYPos() <= wall.getYPos() && playerH >= wallH){
+                return -2;
+            }
+            else if(playerH >= wall.getYPos()+wall.getHeight()/2 && player.getYPos() <= wall.getYPos()){
+                return -2;
             }
         }*/
 
+        return 0;
+
+    }
+
+    public boolean checkWall(Player player, Entity entity){
+        double playerPos = player.getXPos() + player.getWidth();
+
+        if(entity instanceof Wall){
+            Wall wall = (Wall) entity;
+            double wallPos = wall.getXPos()+wall.getWidth();
+            if(playerPos >= wall.getXPos() && player.getXPos() <= wallPos){
+                return true;
+            }
+        }
+
         return false;
     }
 
-
-    public void handlePlayerEnemy(Player player, Enemy enemy){
-
-    }
 }

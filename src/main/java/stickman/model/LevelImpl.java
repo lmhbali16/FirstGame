@@ -47,7 +47,7 @@ public class LevelImpl implements Level {
         this.entityList = new ArrayList<>();
         this.enemyList = new ArrayList<>();
         this.entityList.add(player);
-        this.collisionHandler = new CollisionHandler(levelHeight-floorHeight);
+        this.collisionHandler = new CollisionHandler(levelHeight-floorHeight, entityList, enemyList);
         this.startLine = startLine;
         this.finishLine = finishLine;
 
@@ -61,13 +61,8 @@ public class LevelImpl implements Level {
      */
     public boolean moveRight(){
         this.player.setRight(true);
-        if(this.player.getXPos()  >= this.levelWidth){
-            return false;
+        this.player.setLeft(false);
 
-        } else{
-            this.player.setXPos(true, this.player.getVelocity());
-
-        }
         return true;
     }
 
@@ -77,13 +72,9 @@ public class LevelImpl implements Level {
      */
     public boolean moveLeft(){
         this.player.setLeft(true);
+        this.player.setRight(false);
 
-        if(this.player.getXPos() <= 0){
-            return false;
 
-        } else{
-            this.player.setXPos(false, this.player.getVelocity());
-        }
         return true;
     }
 
@@ -93,10 +84,8 @@ public class LevelImpl implements Level {
      */
     public boolean jump(){
 
-        if(!player.getJump() && !player.getFall()){
-            return player.setYPos();
-        }
-        return false;
+
+        return this.player.setYPos();
     }
 
     /**
@@ -105,15 +94,8 @@ public class LevelImpl implements Level {
      */
     public boolean stopMoving(){
 
-        if(this.player.getLeft()){
-            this.player.setLeft(false);
+        player.stopMoving();
 
-        }
-
-        if(this.player.getRight()){
-            this.player.setRight(false);
-
-        }
         return true;
     }
 
@@ -151,25 +133,7 @@ public class LevelImpl implements Level {
     }
 
     public void movePlayer(){
-
-        if(!player.getFall() && player.getJump()){
-            player.setYPos();
-        }
-
-        else if(player.getFall() && !player.getJump()){
-            player.setYPos();
-        }
-
-        if(this.player.getRight()){
-            this.stopMoving();
-            this.moveRight();
-        }
-
-        if(this.player.getLeft()){
-            this.stopMoving();
-            this.moveLeft();
-        }
-
+        player.move();
         if(this.getHeroX() >= finishLine){
             this.setStart(false);
             finish = true;
@@ -183,8 +147,8 @@ public class LevelImpl implements Level {
     }
 
     public void handleCollision(){
-        this.collisionHandler.handleObjectCollision(this.entityList);
-        this.collisionHandler.handlePlayerCollision(this.player, entityList);
+        this.collisionHandler.handleWallCollision(player);
+        this.collisionHandler.handleEnemyCollision(player);
     }
 
 

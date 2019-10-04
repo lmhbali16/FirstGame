@@ -1,13 +1,16 @@
 package stickman.Entity;
 
+import javafx.scene.image.ImageView;
 import stickman.Strategy.*;
+
+import java.io.File;
 
 public class Enemy implements Entity {
 
     private double height;
     private double width;
     private int life;
-    private String path;
+    private String imagePath;
     private Layer layer;
     private double x;
     private double y;
@@ -16,21 +19,25 @@ public class Enemy implements Entity {
     private boolean right;
     private boolean jump;
     private  boolean fall;
-    private double jump_height;
-    private double counter = 0;
+    private ImageView node;
 
-    public Enemy(double height, double width, int life, String path){
+    public Enemy(double height, int life, String path){
         this.height = height;
-        this.width = width;
+
         this.life = life;
-        this.path = path;
+        this.imagePath = path;
         this.layer = Layer.FOREGROUND;
         this.strat = null;
         left = false;
         right = false;
         jump = false;
         fall = false;
-        jump_height = 0;
+        this.node = new ImageView(new File(imagePath).toURI().toString());
+        node.setFitHeight(height);
+        node.setPreserveRatio(true);
+        this.width = node.getBoundsInLocal().getWidth();
+
+
     }
 
     public void move(){
@@ -48,7 +55,7 @@ public class Enemy implements Entity {
     }
 
     public String getImagePath(){
-        return path;
+        return imagePath;
     }
 
     public double getXPos(){
@@ -104,6 +111,10 @@ public class Enemy implements Entity {
     }
     public void setFall(boolean fall){
         this.fall = fall;
+    }
+
+    public ImageView getNode(){
+        return this.node;
     }
 
 

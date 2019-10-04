@@ -7,7 +7,7 @@
           "life": 5,
   				"stickmanSize": "tiny",
   				"stickmanVelocity": 100,
-          "jumpVelocity": 600,
+          "jumpVelocity": 90,
 	  			"stickmanJump": 100
 	  			
   			},
@@ -29,7 +29,7 @@
           "life": 5,
   				"stickmanSize": "normal",
   				"stickmanVelocity": 4,
-          "jumpVelocity": 30,
+          "jumpVelocity": 3,
 	  			"stickmanJump": 80
 	  			
   			},
@@ -49,7 +49,7 @@
 	  	{
 	  		"player": {
           "life": 5,
-          "jumpVelocity": 30,
+          "jumpVelocity": 3,
   				"stickmanSize": "large",
   				"stickmanVelocity": 4,
 	  			"stickmanJump": 70

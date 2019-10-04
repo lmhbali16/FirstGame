@@ -1,6 +1,9 @@
 package stickman.model;
 
+import javafx.scene.image.ImageView;
 import stickman.Entity.Entity;
+
+import java.io.File;
 
 /**
  * @author SID:480133780
@@ -24,23 +27,30 @@ public class Player implements Entity {
     private int life;
     private double floorHeight;
     private double jumpVelocity;
+    private double levelWidth;
+    private ImageView node;
 
 
     /**
      * Constructor
      * @param height height of player
-     * @param width width of player
      * @param velocity velocity of player
      * @param jump_height height of jump
      */
-    public Player(double height, double width, double velocity, double jump_height, double jumpVelocity){
+    public Player(double height, double velocity, double jump_height, double jumpVelocity){
 
-        this.jumpVelocity = jumpVelocity;
+        this.jumpVelocity = jumpVelocity * 0.017;
         this.height = height;
-        this.width = width;
+
         this.velocity = velocity;
-        this.imagePath = "./src/main/resources/ch_stand1.png";
         this.layer = Layer.FOREGROUND;
+        imagePath = "./src/main/resources/ch_stand1.png";
+        this.node = new ImageView(new File("./src/main/resources/ch_stand1.png").toURI().toString());
+        node.setFitHeight(height);
+        node.setPreserveRatio(true);
+        this.width = node.getBoundsInLocal().getWidth();
+
+
 
         this.jump = false;
         this.fall = false;
@@ -200,45 +210,105 @@ public class Player implements Entity {
         }
     }
 
+    public void move(){
+        if(!fall && jump){
+            this.setYPos();
+        }
+
+        else if(fall && !jump){
+            this.setYPos();
+        }
+
+        if(right){
+            this.stopMoving();
+            this.moveRight();
+        }
+
+        if(left){
+            this.stopMoving();
+            this.moveLeft();
+        }
+    }
+
+    public boolean moveRight(){
+        this.setRight(true);
+        if(this.getXPos()  >= this.levelWidth){
+            return false;
+
+        } else{
+            this.setXPos(true, this.getVelocity());
+
+        }
+        return true;
+    }
+
+    public boolean moveLeft(){
+        this.setLeft(true);
+
+        if(this.getXPos() <= 0){
+            return false;
+
+        } else{
+            this.setXPos(false, this.getVelocity());
+        }
+        return true;
+    }
+
+    public void stopMoving(){
+        if(left){
+            this.setLeft(false);
+
+        }
+
+        if(right){
+            this.setRight(false);
+
+        }
+    }
+
     /**
      * Set the y position of player (when it jumps basically)
      * @return returns true when it first jumps and false until it lands to the ground
      */
     public boolean setYPos(){
 
-        if(!this.jump && !this.fall){
-            this.jump = true;
-            this.y -= 1;
-            this.counter += 1;
+        if(!jump && !fall){
+
+            this.y -= jumpVelocity;
+            counter += jumpVelocity;
+            jump = true;
+            fall = false;
+
             return true;
-
-        } else if(this.jump && !this.fall){
-            if(this.jump_height <= this.counter){
-                this.jump = false;
-                this.fall = true;
-                this.y += 1;
-                this.counter -= 1;
-
-            } else if(this.counter < this.jump_height){
-                this.y -= 1;
-                this.counter += 1;
-            }
-        } else if(!jump && fall){
-
-            if(this.y+this.height == floorHeight){
-                this.fall = false;
-                counter = 0;
-                if(right){
-                    this.setRight(right);
-                }
-                else if(left){
-                    this.setLeft(left);
-                }
-                return false;
-            }
-            this.y += 1;
-            this.counter -= 1;
         }
+
+        if(jump){
+            if(counter < jump_height){
+                this.y -=jumpVelocity;
+                counter+= jumpVelocity;
+            }
+            else if(counter >= jump_height){
+                counter-=velocity;
+                this.y += jumpVelocity;
+                jump = false;
+                fall = true;
+            }
+        }
+        else if(fall){
+            if(y+height + jumpVelocity >= floorHeight){
+                y = floorHeight-height;
+                counter = 0;
+                jump = false;
+                fall = false;
+
+            }
+            else{
+                this.y += jumpVelocity;
+                counter -= jumpVelocity;
+            }
+        }
+
+
         return false;
     }
 
@@ -300,5 +370,13 @@ public class Player implements Entity {
 
     public void setCounter(int counter){
         this.counter = counter;
+    }
+
+    public void setLevelWidth(double levelWidth){
+        this.levelWidth = levelWidth;
+    }
+
+    public ImageView getNode(){
+        return this.node;
     }
 }

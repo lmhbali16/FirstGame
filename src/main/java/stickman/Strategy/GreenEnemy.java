@@ -5,7 +5,7 @@ import stickman.Strategy.EnemyStrat;
 
 public class GreenEnemy implements EnemyStrat {
 
-    private double velocity = 90 * 0.017;
+    private double velocity = 60 * 0.017;
     private double jump_height = 50;
     private double counter = 0;
 

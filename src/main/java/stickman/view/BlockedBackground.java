@@ -16,7 +16,6 @@ public class BlockedBackground implements BackgroundDrawer {
 
     private GameEngine model;
     private Pane pane;
-    private Rectangle floor;
     private Text time_text;
 
 

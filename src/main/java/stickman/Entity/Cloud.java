@@ -1,5 +1,9 @@
 package stickman.Entity;
 
+import javafx.scene.image.ImageView;
+
+import java.io.File;
+
 /**
  * @author SID:480133780
  */
@@ -14,6 +18,7 @@ public class Cloud implements Entity {
     private String imagePath;
     private Layer layer;
     private double levelWidth;
+    private ImageView node;
 
     /**
      * Constructor
@@ -24,17 +29,22 @@ public class Cloud implements Entity {
      * @param velocity Cloud velocity
      * @param levelWidth Width of the Level the Cloud is in
      */
-    public Cloud(double x, double y, double height, double width, double velocity, double levelWidth){
+    public Cloud(double x, double y, double height, double velocity, double levelWidth){
         this.x = x;
         this.y = y;
 
         this.height = height;
-        this.width = width;
+
         this.velocity = velocity;
 
         this.imagePath = "./src/main/resources/cloud_2.png";
         this.layer = Layer.BACKGROUND;
         this.levelWidth = levelWidth;
+
+        this.node = new ImageView(new File(imagePath).toURI().toString());
+        this.node.setFitHeight(height);
+        this.node.setPreserveRatio(true);
+        this.width = node.getBoundsInLocal().getWidth();
     }
 
     /**
@@ -109,6 +119,10 @@ public class Cloud implements Entity {
     /**@return return path of Cloud image */
     public String getImagePath(){
         return this.imagePath;
+    }
+
+    public ImageView getNode(){
+        return this.node;
     }
 
 

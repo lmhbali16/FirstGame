@@ -1,6 +1,9 @@
 package stickman.Entity;
 
+import javafx.scene.image.ImageView;
 import stickman.Entity.Entity;
+
+import java.io.File;
 
 public class Wall implements Entity {
 
@@ -11,6 +14,7 @@ public class Wall implements Entity {
     private double width;
     private Layer layer;
     private boolean playeron;
+    private ImageView node;
 
     public Wall(double x, double y){
         this.x = x;
@@ -18,8 +22,15 @@ public class Wall implements Entity {
         this.path = "./src/main/resources/wall.png";
         this.height = 30;
         this.width = 30;
-        layer = Layer.FOREGROUND;
+        layer = Layer.BACKGROUND;
         this.playeron = false;
+
+        this.node = new ImageView(new File(path).toURI().toString());
+        this.node.setFitHeight(30);
+        this.node.setPreserveRatio(true);
+        width = node.getBoundsInLocal().getWidth();
+
+
     }
 
     public String getImagePath(){
@@ -53,5 +64,9 @@ public class Wall implements Entity {
 
     public void setPlayerOn(boolean playeron){
         this.playeron = playeron;
+    }
+
+    public ImageView getNode(){
+        return this.node;
     }
 }
