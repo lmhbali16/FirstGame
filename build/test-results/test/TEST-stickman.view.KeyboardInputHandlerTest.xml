@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stickman.view.KeyboardInputHandlerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-10-06T02:18:44" hostname="Hoang" time="1.373">
+  <properties/>
+  <testcase name="testKeyboardUp" classname="stickman.view.KeyboardInputHandlerTest" time="1.31"/>
+  <testcase name="testKeyBoardLR" classname="stickman.view.KeyboardInputHandlerTest" time="0.033"/>
+  <testcase name="checkConfig" classname="stickman.view.KeyboardInputHandlerTest" time="0.028"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

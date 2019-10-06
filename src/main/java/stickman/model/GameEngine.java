@@ -12,12 +12,12 @@ public interface GameEngine {
     boolean moveLeft();
     boolean moveRight();
     boolean stopMoving();
-
+    boolean getStart();
     void setSecond(double second);
     double getSecond();
     int getMinute();
     void setMinute(int minute);
-
-    int getStatus();
+    boolean getFinish();
+    int getLife();
     void tick();
 }

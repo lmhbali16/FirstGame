@@ -23,7 +23,7 @@ public class App extends Application {
             throw new IllegalStateException("You must be running Java 11+. You won't ever see this exception though" +
                     " as your code will fail to compile on Java 10 and below.");
         }
-        GameEngine model = new GameEngineImpl("level.json");
+        GameEngine model = new GameEngineImpl("./src/main/resources/level.json");
         GameWindow window = new GameWindow(model, 720, 400);
         window.run();
 

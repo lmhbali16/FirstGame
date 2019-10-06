@@ -47,7 +47,7 @@ public class LevelImpl implements Level {
         this.entityList = new ArrayList<>();
         this.enemyList = new ArrayList<>();
         this.entityList.add(player);
-        this.collisionHandler = new CollisionHandler(levelHeight-floorHeight, entityList, enemyList);
+        this.collisionHandler = new CollisionHandler(levelHeight-floorHeight, entityList, enemyList, startLine);
         this.startLine = startLine;
         this.finishLine = finishLine;
 
@@ -108,29 +108,25 @@ public class LevelImpl implements Level {
         }
         if(player.getLife() <= 0 || finish){
             this.setStart(false);
+            finish = true;
         }
 
-        this.moveCloud();
+        this.move();
         this.movePlayer();
-        this.moveEnemy();
+
         this.handleCollision();
 
     }
 
-    public void moveEnemy(){
-        for(int i = 0; i < enemyList.size(); i++){
-            enemyList.get(i).move();
-        }
-    }
-
-    public void moveCloud(){
-        for(int i = 0; i < entityList.size(); i ++){
-            if(entityList.get(i) instanceof Cloud){
-                Cloud cloud = (Cloud) entityList.get(i);
-                cloud.move();
+    public void move(){
+        for(int i = 0; i < entityList.size();i++){
+            if(!(entityList.get(i) instanceof Player)){
+                entityList.get(i).move();
             }
         }
     }
+
+
 
     public void movePlayer(){
         player.move();
@@ -207,4 +203,6 @@ public class LevelImpl implements Level {
     public List<Enemy> getEnemyList(){
         return enemyList;
     }
+
+    public double getStartLine(){ return this.startLine;}
 }

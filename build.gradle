@@ -14,12 +14,13 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile "junit:junit:4.12"
     implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+    testCompile group: 'de.saxsys', name: 'jfx-testrunner', version: '1.1'
 }
 
 javafx{
-    modules = ['javafx.controls', 'javafx.media']
+    modules = ['javafx.controls', 'javafx.media','javafx.fxml']
     version = '11.0.2'
 }
 

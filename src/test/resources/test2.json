@@ -1,0 +1,29 @@
+{
+  
+  "level":[
+
+  		{	
+  			"player": {
+          "life": 5,
+  				"stickmanSize": "normal",
+  				"stickmanVelocity": 30,
+          "jumpVelocity": 50,
+	  			"stickmanJump": 100
+	  			
+  			},
+
+  			"field":{
+          "enemy": 0,
+          "start" : 30,
+          "finish": 280,
+          "numCloud": 4,
+  				"cloudVelocity": 3.2,
+  				"levelHeight": 300.5,
+  				"levelWidth": 300.34,
+          "wall": 0
+  			}
+
+	  	}
+  	]
+
+}

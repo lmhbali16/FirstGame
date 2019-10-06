@@ -58,7 +58,6 @@ public class FactoryLevel {
 
         JSONObject player_obj = (JSONObject) obj.get("player");
 
-
         Player player = this.createPlayer(player_obj);
 
         Level lvl = this.createLevel((JSONObject) obj.get("field"), player);
@@ -77,13 +76,13 @@ public class FactoryLevel {
         int wall = 0;
 
 
-        enemy = Integer.parseInt(obj.get("enemy").toString());
-        levelHeight = Double.parseDouble(obj.get("levelHeight").toString());
-        levelWidth = Double.parseDouble(obj.get("levelWidth").toString());
+        enemy = Math.abs(Integer.parseInt(obj.get("enemy").toString()));
+        levelHeight = Math.abs(Double.parseDouble(obj.get("levelHeight").toString()));
+        levelWidth = Math.abs(Double.parseDouble(obj.get("levelWidth").toString()));
         floorHeight = levelHeight * 0.15;
-        finish = Double.parseDouble(obj.get("finish").toString());
-        start = Double.parseDouble(obj.get("start").toString());
-        wall = Integer.parseInt(obj.get("wall").toString());
+        finish = this.checkFinish(Double.parseDouble(obj.get("finish").toString()), levelWidth);
+        start = this.checkStart(Double.parseDouble(obj.get("start").toString()),levelWidth);
+        wall = Math.abs(Integer.parseInt(obj.get("wall").toString()));
 
         player.setInitialPos(start, levelHeight-floorHeight-player.getHeight());
         player.setFloorHeight(levelHeight-floorHeight);
@@ -94,10 +93,28 @@ public class FactoryLevel {
         this.addCloud(lvl, Integer.parseInt(obj.get("numCloud").toString()), Double.parseDouble(obj.get("cloudVelocity").toString()));
         this.setLevelLandscape(lvl);
         this.addFinishLine(player.getHeight() * 2.5, finish, levelHeight-floorHeight-player.getHeight() * 2.5, lvl);
-        this.addEnemy(lvl, enemy, player);
+        this.addEnemy(lvl, enemy, player, finish, start);
         this.addWall(lvl, player, finish, wall);
 
         return lvl;
+    }
+
+    public double checkStart(double start, double width){
+        if(Math.abs(start) <= width * 0.5){
+            return Math.abs(start);
+        }
+        else{
+            return 50;
+        }
+    }
+
+    public double checkFinish(double finish, double width){
+        if(Math.abs(finish) <= width && Math.abs(finish) > width/2){
+            return Math.abs(finish);
+        }
+        else{
+            return width -100;
+        }
     }
 
     public void addWall(Level lvl, Player player, double finish, int stategy){
@@ -134,7 +151,7 @@ public class FactoryLevel {
             x = Math.round(x_random * 100.00) / 100.00;
             y = Math.round(y_random * 100.00) / 100.00;
 
-            height = Math.random() * (150-50) + 50;
+            height = Math.random() * (70-40) + 40;
             height = Math.round(height * 100.00) / 100.00;
 
 
@@ -189,12 +206,12 @@ public class FactoryLevel {
         lvl.getEntities().add(finish);
     }
 
-    public void addEnemy(Level lvl, int enemy, Player player){
+    public void addEnemy(Level lvl, int enemy, Player player, double finish, double start){
 
         for(int i = 0; i < enemy; i++){
             int randomNumber = (int) Math.round(Math.random() * (5-1) +1);
-            double x = Math.round(Math.random() * (lvl.getWidth() - (player.getXPos()+ 10)) * 100.00)/100.00;
-            double y = Math.round(Math.random() * (lvl.getHeight() - (player.getYPos()- 10)) * 100.00)/100.00;
+            double x = Math.round(Math.random() * ((finish-100) - (start+ player.getWidth() +150)) * 100.00)/100.00;
+            double y = Math.round(Math.random() * (lvl.getHeight() - (player.getYPos()+player.getHeight() -10)) * 100.00)/100.00;
 
             if(randomNumber == 1){
                 double height = player.getHeight();
@@ -233,7 +250,7 @@ public class FactoryLevel {
                 Enemy enemyObj = new Enemy(height,life,path);
                 EnemyStrat strat = new PurpleEnemy(lvl.getHeight()-lvl.getFloorHeight(), lvl.getWidth() ,enemyObj);
                 enemyObj.createStrategy(strat);
-                enemyObj.setInitialPos(x*0.75,y);
+                enemyObj.setInitialPos(x,y);
                 lvl.getEnemyList().add(enemyObj);
                 lvl.getEntities().add(enemyObj);
 
@@ -247,7 +264,7 @@ public class FactoryLevel {
                 Enemy enemyObj = new Enemy(height,life,path);
                 EnemyStrat strat = new RedEnemy(lvl.getHeight()-lvl.getFloorHeight(), lvl.getWidth() ,enemyObj);
                 enemyObj.createStrategy(strat);
-                enemyObj.setInitialPos(x,lvl.getHeight()-lvl.getFloorHeight()-player.getJumphHight()+ height);
+                enemyObj.setInitialPos(x,lvl.getHeight()-lvl.getFloorHeight()-player.getJumphHeight()+ height);
                 lvl.getEnemyList().add(enemyObj);
                 lvl.getEntities().add(enemyObj);
             }
@@ -260,7 +277,7 @@ public class FactoryLevel {
                 Enemy enemyObj = new Enemy(height,life,path);
                 EnemyStrat strat = new YellowEnemy(lvl.getHeight()-lvl.getFloorHeight(), lvl.getWidth() ,enemyObj);
                 enemyObj.createStrategy(strat);
-                enemyObj.setInitialPos(x * 0.75,y);
+                enemyObj.setInitialPos(x ,y);
                 lvl.getEnemyList().add(enemyObj);
                 lvl.getEntities().add(enemyObj);
             }

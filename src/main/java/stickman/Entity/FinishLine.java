@@ -60,5 +60,5 @@ public class FinishLine implements Entity {
         this.x = x;
         this.y = y;
     }
-
+    public void  move(){}
 }

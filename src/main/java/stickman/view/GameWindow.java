@@ -44,7 +44,7 @@ public class GameWindow {
         scene.setOnKeyPressed(keyboardInputHandler::handlePressed);
         scene.setOnKeyReleased(keyboardInputHandler::handleReleased);
 
-        this.backgroundDrawer = new BlockedBackground();
+        this.backgroundDrawer = new BlockedBackground(width, height);
         backgroundDrawer.draw(model, pane);
 
         finish = 0;
@@ -89,7 +89,7 @@ public class GameWindow {
 
         if (heroXPos < this.VIEWPORT_MARGIN) {
 
-            if (this.xViewportOffset >= 0) { // Don't go further left than the start of the level
+            if (this.xViewportOffset >= 0) {
 
                 this.xViewportOffset -= this.VIEWPORT_MARGIN - heroXPos;
                 if (this.xViewportOffset < 0) {
@@ -127,20 +127,12 @@ public class GameWindow {
         }
         this.entityViews.removeIf(EntityView::isMarkedForDelete);
 
-        if(model.getCurrentLevel().getFinish()){
-            backgroundDrawer.gameOver(true);
-            if(finish > 1.5){
-                Platform.exit();
-            }
-            else{
-                finish+= timeline.getCurrentTime().toSeconds();
-            }
-        }
+        this.isFinished();
 
     }
 
     public void updateTime(){
-        if(model.getCurrentLevel().getStart()){
+        if(model.getStart()){
             model.setSecond(model.getSecond() + timeline.getCurrentTime().toSeconds());
             if(model.getSecond() >= 60){
                 model.setMinute(model.getMinute()+1);
@@ -150,7 +142,26 @@ public class GameWindow {
     }
 
 
-
+    public void isFinished(){
+        if(model.getFinish() && model.getLife() > 0){
+            backgroundDrawer.gameOver(true);
+            if(finish >= 2){
+                Platform.exit();
+            }
+            else{
+                finish+= timeline.getCurrentTime().toSeconds();
+            }
+        }
+        else if(model.getFinish() && model.getLife() <= 0){
+            backgroundDrawer.gameOver(false);
+            if(finish >= 2){
+                Platform.exit();
+            }
+            else{
+                finish+= timeline.getCurrentTime().toSeconds();
+            }
+        }
+    }
 
 
 }

@@ -15,7 +15,7 @@ public class GameEngineImpl implements GameEngine{
     private List<Level> list_lvl;
     private Level lvl;
 
-    private int lvl_status;
+
     private int minute;
     private double second;
 
@@ -25,7 +25,7 @@ public class GameEngineImpl implements GameEngine{
      * @param s JSON file name. It is assumed that the file is in the resources folder
      */
     public GameEngineImpl(String s){
-        s = "./src/main/resources/" + s;
+
 
         FactoryLevel read_json = new FactoryLevel(s);
 
@@ -49,8 +49,8 @@ public class GameEngineImpl implements GameEngine{
 
     }
 
-    public int getStatus(){
-        return lvl_status;
+    public boolean getFinish(){
+        return lvl.getFinish();
     }
 
     public int getMinute(){
@@ -68,6 +68,10 @@ public class GameEngineImpl implements GameEngine{
         this.minute = minute;
     }
 
+
+    public int getLife() {
+        return lvl.getHeroLife();
+    }
 
     /**
      * @return return the current Level the player is in
@@ -100,20 +104,9 @@ public class GameEngineImpl implements GameEngine{
     public void tick(){
 
         lvl.tick();
+    }
 
-        if(lvl.getHeroLife() <= 0 && !lvl.getFinish()){
-            lvl_status = -1; // if hero died before finishinh
-        }
-        else if(lvl.getHeroLife() > 0 && lvl.getStart() && !lvl.getFinish()){
-            lvl_status = 0; //if hero lives during the game
-        }
-        else if(lvl.getHeroLife() <= 0 && lvl.getStart() && !lvl.getFinish()){
-            lvl_status = -1; //hero dies during the game
-        }
-        else if(lvl.getHeroLife() > 0 && !lvl.getStart() && lvl.getFinish()){
-            lvl_status = 1;
-        }
-
-
+    public boolean getStart(){
+        return lvl.getStart();
     }
 }

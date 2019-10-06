@@ -9,7 +9,7 @@ public interface Entity {
     double getHeight();
     double getWidth();
     Layer getLayer();
-
+    void move();
 
     void setInitialPos(double x, double y);
 

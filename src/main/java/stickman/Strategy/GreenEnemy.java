@@ -27,7 +27,7 @@ public class GreenEnemy implements EnemyStrat {
     private void setX(){
         double x = this.enemy.getXPos();
 
-        if(x <= 0){
+        if(x <= 100){
             this.enemy.setRight(true);
             this.enemy.setLeft(false);
         }

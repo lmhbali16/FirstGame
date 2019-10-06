@@ -69,4 +69,5 @@ public class Wall implements Entity {
     public ImageView getNode(){
         return this.node;
     }
+    public void move(){}
 }

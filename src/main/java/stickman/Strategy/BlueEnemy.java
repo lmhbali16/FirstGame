@@ -17,7 +17,7 @@ public class BlueEnemy implements EnemyStrat {
     public BlueEnemy(double levelHeight, double levelWidth, Enemy enemy){
         this.enemy = enemy;
         this.levelHeight = levelHeight;
-        this.levelWidth = levelWidth;
+        this.levelWidth = levelWidth - 150;
         this.moveRight = levelWidth *0.25;
         this.moveLeft = levelWidth*0.30;
     }
@@ -30,11 +30,11 @@ public class BlueEnemy implements EnemyStrat {
     private void setX(){
         double x = enemy.getXPos();
         if(moveLeft > 0){
-            if(x-velocity <= 0){
+            if(x-velocity <= 100){
                 moveLeft = 0;
                 moveRight = moveRight *1.5;
             }
-            if(x-velocity > 0){
+            if(x-velocity > 100){
                 enemy.setInitialPos(x-velocity,enemy.getYPos());
                 moveLeft -= velocity;
             }

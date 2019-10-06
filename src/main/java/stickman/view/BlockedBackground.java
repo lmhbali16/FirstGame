@@ -17,7 +17,14 @@ public class BlockedBackground implements BackgroundDrawer {
     private GameEngine model;
     private Pane pane;
     private Text time_text;
+    private Text life_text;
+    private double height;
+    private double width;
 
+    public BlockedBackground(double width, double height){
+        this.width = width;
+        this.height = height;
+    }
 
     /**
      * Draw the background
@@ -41,16 +48,26 @@ public class BlockedBackground implements BackgroundDrawer {
     @Override
     public void update(int minute, double second) {
         // do nothing since this is a static bg
-        pane.getChildren().removeAll(time_text);
+        pane.getChildren().removeAll(time_text, life_text);
 
         String time =minute+" : "+ (int) second;
 
         time_text = new Text( 10, 50,time);
         time_text.setViewOrder(30);
-        time_text.setFont(Font.font("family", 50));
+        time_text.setFont(Font.font("family", 30));
 
 
-        pane.getChildren().add(time_text);
+        String life = "Life: "+ model.getLife();
+        life_text = new Text(life);
+        life_text.setViewOrder(30);
+        life_text.setFont(Font.font("family", 30));
+        life_text.setY(50);
+        life_text.setX(width - life_text.getLayoutBounds().getWidth() - 10);
+
+        pane.getChildren().addAll(time_text, life_text);
+
+
+
 
     }
 

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stickman.model.FactoryLevelTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-10-06T02:18:43" hostname="Hoang" time="0.618">
+  <properties/>
+  <testcase name="readBasic" classname="stickman.model.FactoryLevelTest" time="0.509"/>
+  <testcase name="testLevelEdgeCase" classname="stickman.model.FactoryLevelTest" time="0.109"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

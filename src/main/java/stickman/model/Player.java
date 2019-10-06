@@ -232,7 +232,7 @@ public class Player implements Entity {
 
     public boolean moveRight(){
         this.setRight(true);
-        if(this.getXPos()  >= this.levelWidth){
+        if(this.getXPos()+this.width  > this.levelWidth){
             return false;
 
         } else{
@@ -352,7 +352,7 @@ public class Player implements Entity {
             this.setStandImage("./src/main/resources/ch_stand2.png");
         }
     }
-    public double getJumphHight(){
+    public double getJumphHeight(){
         return jump_height;
     }
 
@@ -368,7 +368,7 @@ public class Player implements Entity {
         this.floorHeight = floorHeight;
     }
 
-    public void setCounter(int counter){
+    public void setCounter(double counter){
         this.counter = counter;
     }
 

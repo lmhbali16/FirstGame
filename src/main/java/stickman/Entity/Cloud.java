@@ -25,7 +25,6 @@ public class Cloud implements Entity {
      * @param x X coordinate of the Cloud Object
      * @param y Y coordinate of the CLoud Object
      * @param height Height of the CLoud
-     * @param width Width of the Cloud
      * @param velocity Cloud velocity
      * @param levelWidth Width of the Level the Cloud is in
      */

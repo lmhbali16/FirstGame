@@ -24,8 +24,7 @@ public class EntityViewImpl implements EntityView {
 
         this.node = entity.getNode();
         node.setFitHeight(entity.getHeight());
-
-        node.setPreserveRatio(true);
+        node.setFitWidth(entity.getWidth());
         node.setX(entity.getXPos());
         node.setY(entity.getYPos());
 
@@ -87,7 +86,7 @@ public class EntityViewImpl implements EntityView {
         node.setX(entity.getXPos() - xViewportOffset);
         node.setY(entity.getYPos());
         node.setFitHeight(entity.getHeight());
-
+        node.setFitWidth(entity.getWidth());
         node.setPreserveRatio(true);
         delete = false;
     }
