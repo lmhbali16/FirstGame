@@ -44,7 +44,7 @@ public class WindowClass {
         scene.setOnKeyPressed(keyboardInputHandler::handlePressed);
         scene.setOnKeyReleased(keyboardInputHandler::handleReleased);
 
-        this.backgroundDrawer = new BlockedBackground(width, height);
+        this.backgroundDrawer = new BlockedBackground(width);
         backgroundDrawer.draw(model, pane);
 
         finish = 0;
@@ -66,7 +66,7 @@ public class WindowClass {
     }
 
     /**
-     * Draw the game every 17 millisecond
+     * Do nothing
      */
     public void run() {
         timeline = new Timeline(new KeyFrame(Duration.millis(17),
@@ -108,7 +108,7 @@ public class WindowClass {
             this.xViewportOffset += heroXPos - (this.width - this.VIEWPORT_MARGIN);
         }
 
-        this.backgroundDrawer.update(model.getMinute(), model.getSecond());
+        this.backgroundDrawer.update();
         this.updateTime();
 
         for (Entity entity : entities) {
@@ -139,38 +139,29 @@ public class WindowClass {
 
     }
 
-    public void updateTime(){
-        if(model.getStart()){
-            model.setSecond(model.getSecond() + timeline.getCurrentTime().toSeconds());
-            if(model.getSecond() >= 60){
-                model.setMinute(model.getMinute()+1);
-                model.setSecond(0);
-            }
-        }
+    private void updateTime(){
+        model.setSecond(model.getSecond()+ timeline.getCurrentTime().toSeconds());
     }
 
 
-    public void isFinished(){
-        if(model.getFinish() && model.getLife() > 0){
+
+    private void isFinished() {
+        if (model.isFinished() == 1) {
             backgroundDrawer.gameOver(true);
-            if(finish >= 2){
+            if (finish >= 2) {
                 Platform.exit();
+            } else {
+                finish += timeline.getCurrentTime().toSeconds();
             }
-            else{
-                finish+= timeline.getCurrentTime().toSeconds();
-            }
-        }
-        else if(model.getFinish() && model.getLife() <= 0){
+        } else if (model.isFinished() == -1) {
             backgroundDrawer.gameOver(false);
-            if(finish >= 2){
+            if (finish >= 2) {
                 Platform.exit();
-            }
-            else{
-                finish+= timeline.getCurrentTime().toSeconds();
+            } else {
+                finish += timeline.getCurrentTime().toSeconds();
             }
         }
     }
-
 
 }
 

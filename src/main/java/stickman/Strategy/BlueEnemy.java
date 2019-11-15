@@ -1,12 +1,12 @@
 package stickman.Strategy;
 
 import stickman.Entity.Enemy;
-import stickman.Strategy.EnemyStrat;
+
 
 public class BlueEnemy implements EnemyStrat {
 
     private Enemy enemy;
-    private double velocity = 70*0.017;
+    private double velocity;
     private double moveLeft;
     private double moveRight;
 
@@ -14,12 +14,17 @@ public class BlueEnemy implements EnemyStrat {
     private double levelHeight;
     private double levelWidth;
 
-    public BlueEnemy(double levelHeight, double levelWidth, Enemy enemy){
-        this.enemy = enemy;
+    public BlueEnemy(double levelHeight, double levelWidth){
+
+        velocity = 70*0.017;
         this.levelHeight = levelHeight;
         this.levelWidth = levelWidth - 150;
         this.moveRight = levelWidth *0.25;
         this.moveLeft = levelWidth*0.30;
+    }
+
+    public void addEnemy(Enemy enemy){
+        this.enemy = enemy;
     }
 
     public void move(){
@@ -27,6 +32,10 @@ public class BlueEnemy implements EnemyStrat {
         this.setY();
     }
 
+    /**
+     * moves left then right based on the constructor setup.
+     * if it reaches the edges then change direction
+     */
     private void setX(){
         double x = enemy.getXPos();
         if(moveLeft > 0){
@@ -58,8 +67,11 @@ public class BlueEnemy implements EnemyStrat {
 
     }
 
+    /**
+     * just make sure that the character lands on the ground if it was on the air originally.
+     */
     private void setY(){
-        double pos = enemy.getYPos() +enemy.getHeight();
+        double pos = enemy.getYPos() + enemy.getHeight();
 
         if(pos >= levelHeight){
             if(!enemy.getJump() && enemy.getFall()){

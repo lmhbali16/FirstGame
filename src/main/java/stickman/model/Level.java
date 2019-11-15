@@ -21,7 +21,7 @@ public interface Level {
     void setStart(boolean start);
     boolean getFinish();
     List<Enemy> getEnemyList();
-    double getStartLine();
+
     int getHeroLife();
     boolean jump();
     boolean moveLeft();

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="stickman.model.CollisionHandlerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-10-06T02:18:44" hostname="Hoang" time="0.037">
+<testsuite name="stickman.model.CollisionHandlerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-10-06T13:51:39" hostname="Hoang" time="0.025">
   <properties/>
-  <testcase name="playerLoseLife" classname="stickman.model.CollisionHandlerTest" time="0.01"/>
+  <testcase name="playerLoseLife" classname="stickman.model.CollisionHandlerTest" time="0.011"/>
   <testcase name="enemyDies" classname="stickman.model.CollisionHandlerTest" time="0.004"/>
-  <testcase name="collisionWall2" classname="stickman.model.CollisionHandlerTest" time="0.013"/>
-  <testcase name="collisionWall3" classname="stickman.model.CollisionHandlerTest" time="0.002"/>
-  <testcase name="collisionWall" classname="stickman.model.CollisionHandlerTest" time="0.004"/>
+  <testcase name="collisionWall2" classname="stickman.model.CollisionHandlerTest" time="0.006"/>
+  <testcase name="collisionWall" classname="stickman.model.CollisionHandlerTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

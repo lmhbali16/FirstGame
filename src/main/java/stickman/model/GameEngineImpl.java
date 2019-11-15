@@ -2,9 +2,6 @@ package stickman.model;
 
 
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-
 
 /**
  * @author SID:480133780
@@ -12,12 +9,12 @@ import java.util.TimerTask;
 
 public class GameEngineImpl implements GameEngine{
 
-    private List<Level> list_lvl;
+    private List<Level> listLevel;
     private Level lvl;
 
 
-    private int minute;
-    private double second;
+    private int minute; //record minutes in the game
+    private double second; // record seconds int the game
 
 
     /**
@@ -29,10 +26,10 @@ public class GameEngineImpl implements GameEngine{
 
         FactoryLevel read_json = new FactoryLevel(s);
 
-        list_lvl = read_json.getLevels();
+        listLevel = read_json.getLevels();
 
 
-        if(list_lvl.size() > 0){
+        if(listLevel.size() > 0){
 
             this.startLevel();
         }
@@ -42,7 +39,7 @@ public class GameEngineImpl implements GameEngine{
 
     /**Start the game/Level*/
     public void startLevel(){
-        lvl = list_lvl.get(0);
+        lvl = listLevel.get(0);
 
 
 
@@ -53,20 +50,37 @@ public class GameEngineImpl implements GameEngine{
         return lvl.getFinish();
     }
 
+    /**
+     *
+     * @return current game time minute
+     */
     public int getMinute(){
         return minute;
     }
+
+    /**
+     *
+     * @return current game time second
+     */
     public double getSecond(){
         return second;
     }
 
+    /**
+     * set second
+     * @param second new second
+     */
     public void setSecond(double second){
-        this.second = second;
+        if(lvl.getStart()){
+            this.second = second;
+            if(this.second >= 60){
+                minute += 1;
+                this.second = 0;
+            }
+        }
     }
 
-    public void setMinute(int minute){
-        this.minute = minute;
-    }
+
 
 
     public int getLife() {
@@ -102,11 +116,24 @@ public class GameEngineImpl implements GameEngine{
 
     /**update the movements (Check Level.tick())*/
     public void tick(){
-
         lvl.tick();
+
+
     }
 
-    public boolean getStart(){
-        return lvl.getStart();
+    /**
+     * Check if the game is finished
+     * @return return 1 if successful, -1 if player dies and 0 otherwise
+     */
+    public int isFinished(){
+        if(lvl.getFinish() && lvl.getHeroLife() > 0){
+           return 1;
+        }
+        else if(lvl.getFinish() && lvl.getHeroLife() <= 0){
+            return -1;
+        }
+        return 0;
     }
+
+
 }

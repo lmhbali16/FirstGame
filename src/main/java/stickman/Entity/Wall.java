@@ -1,7 +1,7 @@
 package stickman.Entity;
 
 import javafx.scene.image.ImageView;
-import stickman.Entity.Entity;
+
 
 import java.io.File;
 
@@ -13,17 +13,20 @@ public class Wall implements Entity {
     private double height;
     private double width;
     private Layer layer;
-    private boolean playeron;
     private ImageView node;
 
+    /**
+     * Tile/wall. Note that the height of the block is always 30 and its width is adjusted based on the image width
+     * after preserving the ratio
+     * @param x x position
+     * @param y y position
+     */
     public Wall(double x, double y){
         this.x = x;
         this.y = y;
         this.path = "./src/main/resources/wall.png";
         this.height = 30;
-        this.width = 30;
         layer = Layer.BACKGROUND;
-        this.playeron = false;
 
         this.node = new ImageView(new File(path).toURI().toString());
         this.node.setFitHeight(30);
@@ -58,13 +61,6 @@ public class Wall implements Entity {
         this.y = y;
     }
 
-    public boolean getPlayerOn(){
-        return this.playeron;
-    }
-
-    public void setPlayerOn(boolean playeron){
-        this.playeron = playeron;
-    }
 
     public ImageView getNode(){
         return this.node;

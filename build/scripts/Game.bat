@@ -79,7 +79,7 @@ set CMD_LINE_ARGS=%*
 :execute
 @rem Setup the command line
 
-set CLASSPATH=%APP_HOME%\lib\Game-1.0-SNAPSHOT.jar;%APP_HOME%\lib\json-simple-1.1.1.jar;%APP_HOME%\lib\javafx-fxml-11.0.2-mac.jar;%APP_HOME%\lib\javafx-controls-11.0.2-mac.jar;%APP_HOME%\lib\javafx-controls-11.0.2.jar;%APP_HOME%\lib\javafx-media-11.0.2-mac.jar;%APP_HOME%\lib\javafx-graphics-11.0.2-mac.jar;%APP_HOME%\lib\javafx-graphics-11.0.2.jar;%APP_HOME%\lib\javafx-base-11.0.2-mac.jar;%APP_HOME%\lib\javafx-base-11.0.2.jar;%APP_HOME%\lib\junit-4.10.jar;%APP_HOME%\lib\hamcrest-core-1.1.jar
+set CLASSPATH=%APP_HOME%\lib\Game-1.0-SNAPSHOT.jar;%APP_HOME%\lib\json-simple-1.1.1.jar;%APP_HOME%\lib\javafx-media-11.0.2-mac.jar;%APP_HOME%\lib\javafx-fxml-11.0.2-mac.jar;%APP_HOME%\lib\javafx-controls-11.0.2-mac.jar;%APP_HOME%\lib\javafx-controls-11.0.2.jar;%APP_HOME%\lib\javafx-graphics-11.0.2-mac.jar;%APP_HOME%\lib\javafx-graphics-11.0.2.jar;%APP_HOME%\lib\javafx-base-11.0.2-mac.jar;%APP_HOME%\lib\javafx-base-11.0.2.jar;%APP_HOME%\lib\junit-4.10.jar;%APP_HOME%\lib\hamcrest-core-1.1.jar
 
 @rem Execute Game
 "%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GAME_OPTS%  -classpath "%CLASSPATH%" stickman.App %CMD_LINE_ARGS%

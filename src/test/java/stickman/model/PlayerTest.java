@@ -3,6 +3,7 @@ package stickman.model;
 import de.saxsys.javafx.test.JfxRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import stickman.Entity.Player;
 
 import static org.junit.Assert.*;
 
@@ -10,6 +11,9 @@ import static org.junit.Assert.*;
 public class PlayerTest {
 
 
+    /**
+     * Move player right and left
+     */
     @Test
     public void testBasic(){
         double height = 40;
@@ -22,12 +26,14 @@ public class PlayerTest {
 
         Player player = new Player(height,velocity,jump_height,jumpVelocity);
         double y = floorHeight-player.getHeight();
-        player.setFloorHeight(floorHeight);
+        player.setFloor(floorHeight);
         player.setInitialPos(x,y);
         player.setLevelWidth(lvlWidth);
-
         player.moveLeft();
-        for(int i = 0; i < 60; i ++){
+
+        int idx = 60;
+
+        for(int i = 0; i < idx; i ++){
             player.move();
         }
 
@@ -35,15 +41,20 @@ public class PlayerTest {
 
         player.moveRight();
 
-        for(int i = 0; i < 100; i++){
+        idx = 100;
+        for(int i = 0; i < idx; i++){
             player.move();
         }
 
-        assertEquals("Wrong x position", velocity*0.017*100,player.getXPos(),4);
+        assertEquals("Wrong x position", velocity*0.017*idx,player.getXPos(),4);
         assertEquals("Wrong y position", floorHeight-height, player.getYPos(),4);
 
     }
 
+    /**
+     *
+     * Check jump
+     */
     @Test
     public void testJumpMove(){
         double height = 40;
@@ -57,22 +68,26 @@ public class PlayerTest {
         Player player = new Player(height,velocity,jump_height,jumpVelocity);
         player.setInitialPos(x,y);
         player.setLevelWidth(lvlWidth);
-        player.setFloorHeight(floorHeight);
+        player.setFloor(floorHeight);
 
         player.moveRight();
         player.setJump(true);
         player.setFall(false);
 
-        for(int i = 0; i < 10;i++){
+        int idx = 10;
+        for(int i = 0; i < idx;i++){
             player.move();
         }
         //Remember, we set to velocity*0.01 instead of 0.017 when the player is in the air
-        assertEquals("Wrong x position",x+velocity*0.01*10,player.getXPos(),2);
-        assertEquals("Wrong y position", y-jumpVelocity*10*0.017,player.getYPos(),2);
+        assertEquals("Wrong x position",x+velocity*0.01*idx,player.getXPos(),2);
+        assertEquals("Wrong y position", y-jumpVelocity*idx*0.017,player.getYPos(),2);
 
 
     }
 
+    /**
+     * Check fall
+     */
     @Test
     public void playerFall(){
         double height = 40;
@@ -86,11 +101,12 @@ public class PlayerTest {
         Player player = new Player(height,velocity,jump_height,jumpVelocity);
         player.setInitialPos(x,y);
         player.setLevelWidth(lvlWidth);
-        player.setFloorHeight(floorHeight);
+        player.setFloor(floorHeight);
 
         player.setFall(true);
 
-        for(int i = 0; i < 120; i++){
+        int idx = 120;
+        for(int i = 0; i < idx; i++){
             player.move();
         }
 
@@ -98,6 +114,9 @@ public class PlayerTest {
 
     }
 
+    /**
+     * move to the edge of level
+     */
     @Test
     public void testPlayerMoveEdge(){
         double height = 40;
@@ -111,10 +130,11 @@ public class PlayerTest {
         Player player = new Player(height,velocity,jump_height,jumpVelocity);
         player.setInitialPos(x,y);
         player.setLevelWidth(lvlWidth);
-        player.setFloorHeight(floorHeight);
+        player.setFloor(floorHeight);
 
         player.moveRight();
 
+        int idx = 150;
         for(int i = 0; i < 150; i++){
             player.move();
         }

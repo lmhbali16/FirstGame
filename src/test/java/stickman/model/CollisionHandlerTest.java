@@ -6,13 +6,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import stickman.Entity.Enemy;
-import stickman.Entity.Entity;
+import stickman.Entity.Player;
 import stickman.Entity.Wall;
+import stickman.Strategy.EnemyStrat;
 import stickman.Strategy.YellowEnemy;
-import stickman.model.Player;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -20,37 +18,65 @@ import static org.junit.Assert.*;
 public class CollisionHandlerTest {
 
 
-    private double startLine;
+
     private Player player;
     private Level lvl;
 
+    private double playerHeight;
+    private double playerVelocity;
+    private double playerJumpHeight;
+    private double jumpVelocity;
+    private double levelHeight;
+    private double floorHeight;
+    private double levelWidth;
+    private double start;
+    private double finish;
+
+    /**
+     * set up
+     */
     @Before
     public void start(){
-        startLine = 10;
-        player = new Player(50,3,50,4);
-        player.setFloorHeight(400-30);
-        lvl = new LevelImpl(30,400,600,13,550,player);
-        player.setLevelWidth(600);
+        start = 10;
+        playerHeight = 50;
+        playerVelocity = 3;
+        playerJumpHeight = 50;
+        jumpVelocity = 10;
+        floorHeight = 30;
+        levelHeight = 400;
+        levelWidth = 600;
+        finish = 550;
+        player = new Player(playerHeight,playerVelocity,playerJumpHeight,jumpVelocity);
+        player.setFloor(levelHeight-floorHeight);
+        lvl = new LevelImpl(floorHeight,levelHeight,levelWidth,start,finish,player);
+        player.setLevelWidth(levelWidth);
 
 
 
     }
 
 
-
+    /**
+     * land on wall
+     */
     @Test
     public void collisionWall(){
-        player.setInitialPos(40,230);
 
-        Wall wall = new Wall(40, 300);
+        double x = 40;
+        double yPlayer = 230;
+        double yWall = 300;
+        player.setInitialPos(x,yPlayer);
+
+        Wall wall = new Wall(x, yWall);
         lvl.getEntities().add(wall);
 
-        for(double i = 0; i < 21;i+=4*0.017){
+        double idx = 20 / (jumpVelocity*0.017);
+        for(double i = 0; i < idx+1;i++){
             lvl.tick();
         }
 
         assertEquals("land on wall is wrong (x)!", wall.getXPos(), player.getXPos(),2);
-        assertEquals("land on wall is wrong (y)!", wall.getYPos() -player.getHeight(),player.getYPos(), 2);
+        assertEquals("land on wall is wrong (y)!", wall.getYPos() -playerHeight,player.getYPos(), 2);
         assertFalse("Wrong falling state!",player.getFall());
         assertFalse("Wrong jumping state!",player.getJump());
 
@@ -58,122 +84,121 @@ public class CollisionHandlerTest {
 
     }
 
+    /**
+     * Pump into wall from bottom
+     */
     @Test
     public void collisionWall2(){
-        player.setInitialPos(62,320);
-        player.setJump(false);
-        player.setFall(false);
-        player.setCounter(0);
+        int gap = 10;
+        double x = 60;
 
-        Wall wall = new Wall(60,280);
-        lvl.getEntities().add(wall);
-
-        double pos = 320;
-        boolean flag = false;
-        for(double i = 0; i < 14; i+=4*0.017){
-            lvl.jump();
-            lvl.tick();
-
-        }
-        double floor = lvl.getHeight()-lvl.getFloorHeight();
-        double playerH = player.getYPos()+player.getHeight();
-        assertTrue("Wrong falling state!",player.getFall());
-        assertTrue("Wrong y position for player!" ,310 < player.getYPos() && playerH < floor);
-        lvl.getEntities().remove(wall);
-    }
-
-    @Test
-    public void collisionWall3(){
-        Wall wall = new Wall(50, 280);
-        player.setInitialPos(50-player.getWidth(), 305);
-        player.setCounter(1);
-        player.setRight(true);
-        player.setJump(true);
-        player.setFall(false);
+        double yWall = levelHeight-floorHeight-playerHeight-30-gap;//- 30 is the wall height and 10 is a gap
+        double yPlayer = levelHeight-floorHeight-playerHeight;
+        Wall wall = new Wall(x, yWall);
+        double floor = levelHeight-floorHeight;
 
         lvl.getEntities().add(wall);
 
-        for(int i= 0; i < 20;i++){
-            lvl.tick();
-        }
-
-        assertEquals("Wrong x position!", 50-player.getWidth(), player.getXPos(),2);
-        assertTrue("Wrong jumping state!",player.getJump());
-        assertTrue("Wrong right moving state",player.getRight());
-        assertEquals("Wrong y position!", 305 -20*4*0.017,player.getYPos(),2);
-
-        player.setInitialPos(50+30, 305);
-        player.setCounter(1);
-        player.setRight(false);
-        player.setLeft(true);
+        player.setInitialPos(x, yPlayer);
         player.setJump(true);
-        player.setFall(false);
 
-        for(int i= 0; i < 20;i++){
+        double idx = gap / (jumpVelocity*0.017);
+        for(int i = 0; i < idx; i++){
             lvl.tick();
         }
 
-        assertEquals("Wrong x position!", 50+30, player.getXPos(),2);
-        assertTrue("Wrong jumping state!",player.getJump());
-        assertTrue("Wrong right moving state",player.getLeft());
-        assertEquals("Wrong y position!", 305 -20*4*0.017,player.getYPos(),2);
 
+        double playerH = player.getHeight()+player.getYPos();
+        assertTrue("Wrong falling state! ",player.getFall());
+        assertTrue("Wrong y position for player!" ,yWall-wall.getHeight() < player.getYPos() && playerH < floor);
         lvl.getEntities().remove(wall);
     }
 
+
+    /**
+     * Check if enemy dies
+     */
     @Test
     public void enemyDies(){
-        Enemy enemy = new Enemy(40,1, "./src/main/resources/slimeBa.png");
-        enemy.createStrategy(new YellowEnemy(400-30,500,enemy));
-        enemy.setInitialPos(50, 370-40);
+
+        double enemyHeight = 40;
+        int enemyLife = 1;
+        double enemyX = 50;
+        double enemyY = levelHeight-floorHeight-enemyHeight;
+        double playerX = 60;
+        double playerY = enemyY-playerHeight-5;
+
+        Enemy enemy = new Enemy(enemyHeight,enemyLife, "./src/main/resources/slimeBa.png");
+        EnemyStrat strat = new YellowEnemy(levelHeight-floorHeight);
+        strat.addEnemy(enemy);
+        enemy.createStrategy(strat);
+        enemy.setInitialPos(enemyX, enemyY);
         lvl.getEntities().add(enemy);
         lvl.getEnemyList().add(enemy);
 
 
-        player.setInitialPos(60, 270);
+        player.setInitialPos(playerX, playerY);
         player.stopMoving();
-        for(double i = 0; i < 11; i+=4*0.017){
+        int idx = 11;
+        for(double i = 0; i < idx; i+=4*0.017){
             lvl.tick();
         }
 
         assertEquals("not empty list!", 0, lvl.getEnemyList().size(),2);
         assertEquals("no the same size of entity list", 1, lvl.getEntities().size());
-        assertTrue("wrong jumping state!", player.getJump());
+        assertTrue("wrong jumping state or falling state!", player.getJump() || player.getFall());
 
 
     }
 
-
+    /**
+     * Check if player dies
+     */
     @Test
     public void playerLoseLife(){
+        int gap = 10;
+        double enemyHeight = 49;
+        int enemyLife = 2;
+        double enemyX = 100;
+        double enemyY = levelHeight-floorHeight-enemyHeight;
+        double playerX = enemyX-player.getWidth()-gap;
+        double playerY = lvl.getHeight()-lvl.getFloorHeight()-playerHeight;
+        int playerLife = 5;
 
-        Enemy enemy = new Enemy(40,2,"./src/main/resources/slimeYa.png");
-        enemy.createStrategy(new YellowEnemy(370,lvl.getWidth(),enemy));
-        enemy.setInitialPos(100,lvl.getHeight()-lvl.getFloorHeight()-40);
+        Enemy enemy = new Enemy(enemyHeight,enemyLife,"./src/main/resources/slimeYa.png");
+
+
+        enemy.setInitialPos(enemyX,enemyY);
         lvl.getEntities().add(enemy);
         lvl.getEnemyList().add(enemy);
 
 
-        player.setInitialPos(100-player.getWidth()-10,lvl.getHeight()-lvl.getFloorHeight()-50);
-
-        player.setLife(5);
+        player.setInitialPos(playerX,playerY);
+        player.setLife(playerLife);
         lvl.moveRight();
-        for(double i = 0; i < 10; i+=3*0.017){
+
+        double idx = gap / (playerVelocity*0.017);
+        for(int i = 0; i < idx+3; i++){
             lvl.tick();
         }
 
+        assertEquals("Should have lost life!", playerLife-1, player.getLife());
+        assertEquals("wrong x coordinate!"+playerX,start,lvl.getHeroX(),2);
 
-        assertEquals("wrong x coordinate!",13,lvl.getHeroX(),2);
-        assertEquals("Should have lost life!", 4, player.getLife());
+        playerLife--;
 
-        player.setInitialPos(enemy.getWidth()+100+10, player.getYPos());
+        playerX = enemyX+enemy.getWidth()+10;
+
+        player.setInitialPos(playerX, player.getYPos());
         lvl.moveLeft();
-        for(double i = 0; i < 10; i+=3*0.017){
+
+        idx = 10;
+        for(double i = 0; i < idx; i+=3*0.017){
             lvl.tick();
         }
 
-        assertEquals("wrong x coordinate!",13,lvl.getHeroX(),2);
-        assertEquals("Should have lost life!", 3, player.getLife());
+        assertEquals("wrong x coordinate!",start,lvl.getHeroX(),2);
+        assertEquals("Should have lost life!", playerLife-1, player.getLife());
 
     }
 

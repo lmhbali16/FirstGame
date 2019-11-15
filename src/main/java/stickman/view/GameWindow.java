@@ -44,7 +44,7 @@ public class GameWindow {
         scene.setOnKeyPressed(keyboardInputHandler::handlePressed);
         scene.setOnKeyReleased(keyboardInputHandler::handleReleased);
 
-        this.backgroundDrawer = new BlockedBackground(width, height);
+        this.backgroundDrawer = new BlockedBackground(width);
         backgroundDrawer.draw(model, pane);
 
         finish = 0;
@@ -100,8 +100,8 @@ public class GameWindow {
             this.xViewportOffset += heroXPos - (this.width - this.VIEWPORT_MARGIN);
         }
 
-        this.backgroundDrawer.update(model.getMinute(), model.getSecond());
-        this.updateTime();
+        this.backgroundDrawer.update();
+
 
         for (Entity entity : entities) {
             boolean notFound = true;
@@ -127,23 +127,24 @@ public class GameWindow {
         }
         this.entityViews.removeIf(EntityView::isMarkedForDelete);
 
+        this.updateTime();
         this.isFinished();
 
     }
 
-    public void updateTime(){
-        if(model.getStart()){
-            model.setSecond(model.getSecond() + timeline.getCurrentTime().toSeconds());
-            if(model.getSecond() >= 60){
-                model.setMinute(model.getMinute()+1);
-                model.setSecond(0);
-            }
-        }
+    /**
+     * Update time
+     */
+    private void updateTime(){
+        model.setSecond(model.getSecond()+ timeline.getCurrentTime().toSeconds());
     }
 
-
-    public void isFinished(){
-        if(model.getFinish() && model.getLife() > 0){
+    /**
+     * Check if the game is finished. If yes we will wait 2 seconds to print out the result on the screen
+     * then close the platform
+     */
+    private void isFinished(){
+        if(model.isFinished() == 1){
             backgroundDrawer.gameOver(true);
             if(finish >= 2){
                 Platform.exit();
@@ -152,7 +153,7 @@ public class GameWindow {
                 finish+= timeline.getCurrentTime().toSeconds();
             }
         }
-        else if(model.getFinish() && model.getLife() <= 0){
+        else if(model.isFinished() == -1){
             backgroundDrawer.gameOver(false);
             if(finish >= 2){
                 Platform.exit();

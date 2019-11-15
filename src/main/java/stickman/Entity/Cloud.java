@@ -99,9 +99,18 @@ public class Cloud implements Entity {
         }
     }
 
+    /**
+     * Do nothing as cloud does not have life
+     * @param life no life
+     */
     public void setLife(int life){}
+
+    /**
+     * Do nothing as cloud does not have life
+     * @return return nothing
+     */
     public int getLife(){ return 0;}
-    public void collision(Entity A){}
+
 
 
 
@@ -120,6 +129,10 @@ public class Cloud implements Entity {
         return this.imagePath;
     }
 
+    /**
+     *
+     * @return Node ImageView of the entity
+     */
     public ImageView getNode(){
         return this.node;
     }

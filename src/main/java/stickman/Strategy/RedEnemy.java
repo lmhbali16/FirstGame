@@ -1,30 +1,39 @@
 package stickman.Strategy;
 
 import stickman.Entity.Enemy;
-import stickman.Strategy.EnemyStrat;
 
 public class RedEnemy implements EnemyStrat {
 
     private Enemy enemy;
-    private double levelHeight;
     private double levelWidth;
-    private double velocity = 30 * 0.017;
+    private double velocity;
 
-    private double moveRight = 70;
-    private double moveLeft = 70;
+    private double moveRight;
+    private double moveLeft;
 
-    public RedEnemy(double levelHeight, double levelWidth, Enemy enemy){
-        this.enemy = enemy;
-        this.levelHeight = levelHeight;
+    public RedEnemy( double levelWidth){
+
+        velocity = 30 * 0.017;
+        moveRight = 70;
+        moveLeft = 70;
         this.levelWidth = levelWidth;
     }
 
+    /**
+     * add our enemy that we have control on
+     * @param enemy enemy object
+     */
+    public void addEnemy(Enemy enemy){
+        this.enemy = enemy;
+    }
 
     public void move(){
         this.setX();
-        this.setY();
     }
 
+    /**
+     * move left 70 pixels then move right 70 pixels with velocity of 30/s
+     */
     private void setX(){
 
 
@@ -58,8 +67,5 @@ public class RedEnemy implements EnemyStrat {
         }
     }
 
-    private void setY(){
 
-
-    }
 }

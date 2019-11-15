@@ -14,3 +14,16 @@ The player speed is 8, its jump height is 30 and the floorheight is 50.
 The speed of objects might be slow. It is because I multiplied the velocity by 0.017
 
 Since the tick() method is called every 0.017 second, we adjust the speed to that as well
+
+ =================================================
+Test cases:
+
+Note: WindowClass is a copy of GameWindow with a small modification to test GameWindow itself
+
+These modification were neccessary for testing (like public void draw() instead of private or our timer does nothing so that we could still check the time but have control over the drawing).
+
+You can modify the json file that are for testcases but note that if a testcase fail it does not mean the program would fail as well. Some of the safety methods were copied from the FactoryLevel class to see how we dealt with certain edgecases.
+
+If neccessary, read the comments for each testcases.
+
+Also note that some enemy have more than 1 life so even if you jump on them, they stay alive.

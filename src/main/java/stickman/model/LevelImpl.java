@@ -1,8 +1,8 @@
 package stickman.model;
 
-import stickman.Entity.Cloud;
 import stickman.Entity.Enemy;
 import stickman.Entity.Entity;
+import stickman.Entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +34,8 @@ public class LevelImpl implements Level {
      * @param levelHeight Height of Level
      * @param levelWidth Width of Level
      * @param player The player
+     * @param startLine starting point of game
+     * @param finishLine finish point of the game
      */
     public LevelImpl(double floorHeight, double levelHeight,double levelWidth,double startLine, double finishLine,Player player){
 
@@ -83,9 +85,11 @@ public class LevelImpl implements Level {
      * @return if jump is successful, returns true.
      */
     public boolean jump(){
-
-
-        return this.player.setYPos();
+        if(!player.getJump() && !player.getFall()){
+            player.setJump(true);
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -118,17 +122,17 @@ public class LevelImpl implements Level {
 
     }
 
-    public void move(){
-        for(int i = 0; i < entityList.size();i++){
-            if(!(entityList.get(i) instanceof Player)){
-                entityList.get(i).move();
+    private void move(){
+        for(Entity entity : entityList){
+            if(!(entity instanceof Player)){
+                entity.move();
             }
         }
     }
 
 
 
-    public void movePlayer(){
+    private void movePlayer(){
         player.move();
         if(this.getHeroX() >= finishLine){
             this.setStart(false);
@@ -136,19 +140,29 @@ public class LevelImpl implements Level {
         }
     }
 
+    /**
+     * Set the start of the game for timer!
+     * @param start if game timer should run or not
+     */
     public void setStart(boolean start) {
 
         this.start = start;
 
     }
 
-    public void handleCollision(){
+    /**
+     * Handle collision within the game
+     */
+    private void handleCollision(){
         this.collisionHandler.handleWallCollision(player);
         this.collisionHandler.handleEnemyCollision(player);
     }
 
 
-
+    /**
+     *
+     * @param s set background of the game
+     */
     public void setLandscapeImage(String s){
         this.landscapeImage = s;
     }
@@ -200,9 +214,13 @@ public class LevelImpl implements Level {
         return finish;
     }
 
+    /**
+     *
+     * @return list of enemies
+     */
     public List<Enemy> getEnemyList(){
         return enemyList;
     }
 
-    public double getStartLine(){ return this.startLine;}
+
 }

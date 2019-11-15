@@ -6,28 +6,26 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.5.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/Entity/Cloud.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/Entity/Cloud.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/Entity/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/Entity/Enemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/Entity/Entity$Layer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/Entity/Entity$Layer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/Entity/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/Entity/Entity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/Entity/FinishLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/Entity/FinishLine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/Entity/MoveWall.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/Entity/Wall.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/Entity/Wall.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/Strategy/BlueEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/Strategy/BlueEnemy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/Strategy/EnemyStrat.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/Strategy/EnemyStrat.class" afterDir="false" />
@@ -46,34 +44,67 @@
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/model/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/view/BackgroundDrawer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/view/BackgroundDrawer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/view/BlockedBackground.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/view/BlockedBackground.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/view/EntityView.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/view/EntityView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/view/EntityViewImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/view/EntityViewImpl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/view/EntityViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/view/EntityViewImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/view/GameWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/view/GameWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/stickman/view/KeyboardInputHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/stickman/view/KeyboardInputHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/stickman/model/CollisionHandlerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/stickman/model/CollisionHandlerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/stickman/model/FactoryLevelTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/stickman/model/FactoryLevelTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/stickman/model/LevelImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/stickman/model/LevelImplTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/stickman/model/PlayerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/stickman/model/PlayerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/stickman/view/GameWindowTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/stickman/view/GameWindowTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/stickman/view/KeyboardInputHandlerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/stickman/view/KeyboardInputHandlerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/stickman/view/WindowClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/stickman/view/WindowClass.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/distributions/Game-1.0-SNAPSHOT.tar" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/Game-1.0-SNAPSHOT.tar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/distributions/Game-1.0-SNAPSHOT.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/Game-1.0-SNAPSHOT.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/Game-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/Game-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/stickman.model.CollisionHandlerTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/stickman.model.CollisionHandlerTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/stickman.model.FactoryLevelTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/stickman.model.FactoryLevelTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/stickman.model.LevelImplTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/stickman.model.LevelImplTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/stickman.model.PlayerTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/stickman.model.PlayerTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/stickman.view.GameWindowTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/stickman.view.GameWindowTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/stickman.view.KeyboardInputHandlerTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/stickman.view.KeyboardInputHandlerTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/stickman.model.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/stickman.model.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/stickman.view.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/stickman.view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/test/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/test/test.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/scripts/Game" beforeDir="false" afterPath="$PROJECT_DIR$/build/scripts/Game" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/scripts/Game.bat" beforeDir="false" afterPath="$PROJECT_DIR$/build/scripts/Game.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-stickman.model.CollisionHandlerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-stickman.model.CollisionHandlerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-stickman.model.FactoryLevelTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-stickman.model.FactoryLevelTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-stickman.model.LevelImplTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-stickman.model.LevelImplTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-stickman.model.PlayerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-stickman.model.PlayerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-stickman.view.GameWindowTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-stickman.view.GameWindowTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-stickman.view.KeyboardInputHandlerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-stickman.view.KeyboardInputHandlerTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/README.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stickman/Entity/Cloud.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/Entity/Cloud.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/Entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/Entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/Entity/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/Entity/Enemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stickman/Entity/FinishLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/Entity/FinishLine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/Entity/MoveWall.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stickman/Entity/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/Entity/Wall.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stickman/Strategy/BlueEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/Strategy/BlueEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/Strategy/EnemyStrat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/Strategy/EnemyStrat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stickman/Strategy/GreenEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/Strategy/GreenEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/Strategy/PurpleEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/Strategy/PurpleEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/Strategy/RedEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/Strategy/RedEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/Strategy/WallBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/Strategy/WallBasic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/Strategy/WallStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/Strategy/WallStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/Strategy/YellowEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/Strategy/YellowEnemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/CollisionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/model/CollisionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/FactoryLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/model/FactoryLevel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/model/GameEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/GameEngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/model/GameEngineImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/model/Level.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/LevelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/model/LevelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/Entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/view/BackgroundDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/view/BackgroundDrawer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stickman/view/BlockedBackground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/view/BlockedBackground.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/stickman/view/EntityViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/view/EntityViewImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/stickman/view/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/stickman/view/GameWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stickman/model/CollisionHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stickman/model/CollisionHandlerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stickman/model/FactoryLevelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stickman/model/FactoryLevelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stickman/model/LevelImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stickman/model/LevelImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stickman/model/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stickman/model/PlayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stickman/view/GameWindowTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stickman/view/GameWindowTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stickman/view/KeyboardInputHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stickman/view/KeyboardInputHandlerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stickman/view/WindowClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stickman/view/WindowClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/test.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -159,8 +190,8 @@
       <recent name="stickman.view" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="stickman.model" />
       <recent name="stickman.Entity" />
+      <recent name="stickman.model" />
       <recent name="stickman.Strategy" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -171,8 +202,8 @@
     <option name="myCommands">
       <command value="run -Xlint" />
       <command value="compile" />
-      <command value="gradle run" />
       <command value="gradle test" />
+      <command value="gradle run" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -188,12 +219,91 @@
     </option>
   </component>
   <component name="RunManager" selected="Gradle.Game [test]">
+    <configuration name="CollisionHandlerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;stickman.model.CollisionHandlerTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="CollisionHandlerTest.collisionWall" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;stickman.model.CollisionHandlerTest.collisionWall&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="CollisionHandlerTest.playerLoseLife" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;stickman.model.CollisionHandlerTest.playerLoseLife&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Game [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="Game [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--info" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -207,93 +317,13 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="GameWindowTest.testBasic" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;stickman.view.GameWindowTest.testBasic&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="PlayerTest.playerFall" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;stickman.model.PlayerTest.playerFall&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="PlayerTest.testJumpMove" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;stickman.model.PlayerTest.testJumpMove&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="PlayerTest.testPlayerMoveEdge" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;stickman.model.PlayerTest.testPlayerMoveEdge&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Game [test]" />
-        <item itemvalue="Gradle.GameWindowTest.testBasic" />
-        <item itemvalue="Gradle.PlayerTest.testPlayerMoveEdge" />
-        <item itemvalue="Gradle.PlayerTest.playerFall" />
-        <item itemvalue="Gradle.PlayerTest.testJumpMove" />
+        <item itemvalue="Gradle.Game [run]" />
+        <item itemvalue="Gradle.CollisionHandlerTest" />
+        <item itemvalue="Gradle.CollisionHandlerTest.playerLoseLife" />
+        <item itemvalue="Gradle.CollisionHandlerTest.collisionWall" />
       </list>
     </recent_temporary>
   </component>
@@ -326,7 +356,11 @@
       <workItem from="1569935454269" duration="16261000" />
       <workItem from="1570001365674" duration="7281000" />
       <workItem from="1570151242607" duration="35685000" />
-      <workItem from="1570262605997" duration="19907000" />
+      <workItem from="1570262605997" duration="46448000" />
+      <workItem from="1570364089871" duration="200000" />
+      <workItem from="1570364986242" duration="78000" />
+      <workItem from="1570416939967" duration="11046000" />
+      <workItem from="1570507906664" duration="425000" />
     </task>
     <task id="LOCAL-00001" summary="Added FactoryLevel to create more levels and adjusted the design accordingly">
       <created>1569040119088</created>
@@ -357,5 +391,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added FactoryLevel to create more levels and adjusted the design accordingly" />
     <option name="LAST_COMMIT_MESSAGE" value="Added FactoryLevel to create more levels and adjusted the design accordingly" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/stickman/view/KeyboardInputHandlerTest.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,20 +1,23 @@
 package stickman.Strategy;
 
 import stickman.Entity.Enemy;
-import stickman.Strategy.EnemyStrat;
+
 
 public class GreenEnemy implements EnemyStrat {
 
-    private double velocity = 60 * 0.017;
-    private double jump_height = 50;
-    private double counter = 0;
+    private double velocity;
+    private double jump_height;
+    private double counter;
 
     private double levelHeight;
     private double levelWidth;
     private Enemy enemy;
 
-    public GreenEnemy(double levelHeight, double levelWidth, Enemy enemy){
-        this.enemy = enemy;
+    public GreenEnemy(double levelHeight, double levelWidth){
+
+        velocity = 60 * 0.017;
+        jump_height = 50;
+        counter = 0;
         this.levelHeight = levelHeight;
         this.levelWidth = levelWidth;
     }
@@ -24,6 +27,18 @@ public class GreenEnemy implements EnemyStrat {
         this.setY();
     }
 
+    /**
+     * add our enemy that we have control on
+     * @param enemy enemy object
+     */
+    public void addEnemy(Enemy enemy){
+        this.enemy = enemy;
+    }
+
+    /**
+     * Move enemy from 100 to (levelWidth-100)
+     * once it arrives to an edge change direction
+     */
     private void setX(){
         double x = this.enemy.getXPos();
 
@@ -31,7 +46,7 @@ public class GreenEnemy implements EnemyStrat {
             this.enemy.setRight(true);
             this.enemy.setLeft(false);
         }
-        else if(x >= levelWidth){
+        else if(x >= levelWidth-100){
             this.enemy.setLeft(true);
             this.enemy.setRight(false);
         }
@@ -45,6 +60,11 @@ public class GreenEnemy implements EnemyStrat {
         }
     }
 
+    /**
+     * Since we set the initial y position to random, we may have to make the enemy fall down the ground first
+     *
+     * otherwise just go up and down 50 pixels in a certain velocity while moving left and right if jump ==true
+     */
     private void setY(){
         this.jump();
         double pos = enemy.getYPos()+enemy.getHeight();
@@ -83,11 +103,13 @@ public class GreenEnemy implements EnemyStrat {
     }
 
 
-
+    /**
+     * Jump if the random number is divisible by 7 and the character is on the ground
+     */
     private void jump(){
        int a = (int) (Math.round(Math.random() * (10-1) + 1));
 
-       if((a % 3 == 0) && !enemy.getJump() && !enemy.getFall()){
+       if((a % 7 == 0) && !enemy.getJump() && !enemy.getFall()){
            enemy.setJump(true);
            enemy.setFall(false);
        }

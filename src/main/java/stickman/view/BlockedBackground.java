@@ -1,11 +1,9 @@
 package stickman.view;
 
-import javafx.geometry.Rectangle2D;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -16,14 +14,13 @@ public class BlockedBackground implements BackgroundDrawer {
 
     private GameEngine model;
     private Pane pane;
-    private Text time_text;
-    private Text life_text;
-    private double height;
+    private Text timeText;
+    private Text lifeText;
     private double width;
 
-    public BlockedBackground(double width, double height){
+    public BlockedBackground(double width){
         this.width = width;
-        this.height = height;
+
     }
 
     /**
@@ -45,33 +42,43 @@ public class BlockedBackground implements BackgroundDrawer {
 
     }
 
+    /**
+     * Remove the old time and life stats and update the new values
+     *
+     */
     @Override
-    public void update(int minute, double second) {
+    public void update() {
         // do nothing since this is a static bg
-        pane.getChildren().removeAll(time_text, life_text);
+        pane.getChildren().removeAll(timeText, lifeText);
 
-        String time =minute+" : "+ (int) second;
+        String time =model.getMinute()+" : "+ (int) model.getSecond();
 
-        time_text = new Text( 10, 50,time);
-        time_text.setViewOrder(30);
-        time_text.setFont(Font.font("family", 30));
+        timeText = new Text( 10, 50,time);
+        timeText.setViewOrder(30);
+        timeText.setFont(Font.font("family", 30));
 
 
         String life = "Life: "+ model.getLife();
-        life_text = new Text(life);
-        life_text.setViewOrder(30);
-        life_text.setFont(Font.font("family", 30));
-        life_text.setY(50);
-        life_text.setX(width - life_text.getLayoutBounds().getWidth() - 10);
+        lifeText = new Text(life);
+        lifeText.setViewOrder(30);
+        lifeText.setFont(Font.font("family", 30));
+        lifeText.setY(50);
+        lifeText.setX(width - lifeText.getLayoutBounds().getWidth() - 10);
 
-        pane.getChildren().addAll(time_text, life_text);
+        pane.getChildren().addAll(timeText, lifeText);
 
 
 
 
     }
 
-    public void addFloor(double width, double level_height, double floorHeight){
+    /**
+     * Add floor
+     * @param width window width
+     * @param level_height level height
+     * @param floorHeight ground height
+     */
+    private void addFloor(double width, double level_height, double floorHeight){
 
         for(int i = 0; i < width; i+= width/15){
 
@@ -89,7 +96,13 @@ public class BlockedBackground implements BackgroundDrawer {
 
     }
 
-    public  void addSky(double width, double level_height, double floor_height){
+    /**
+     * Add sky background
+     * @param width width of game window
+     * @param level_height level height
+     * @param floor_height ground height
+     */
+    private   void addSky(double width, double level_height, double floor_height){
 
         Rectangle sky = new Rectangle(0,0, width, level_height-floor_height);
         sky.setFill(Paint.valueOf("#8bb6e0"));
@@ -106,6 +119,12 @@ public class BlockedBackground implements BackgroundDrawer {
 
     }
 
+    /**
+     * Print final result
+     * if game is completed print "Good job"
+     * otherwise "Unlucky" if u lose
+     * @param finish if game is over
+     */
     public void gameOver(boolean finish){
         if(finish){
             String gameover = "Good Job! You succeeded!";

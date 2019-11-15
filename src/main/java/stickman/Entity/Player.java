@@ -1,7 +1,6 @@
-package stickman.model;
+package stickman.Entity;
 
 import javafx.scene.image.ImageView;
-import stickman.Entity.Entity;
 
 import java.io.File;
 
@@ -148,7 +147,7 @@ public class Player implements Entity {
      * @param velocity the speed which the player moves
      */
 
-    public void setXPos(boolean right, double velocity){
+    private void setXPos(boolean right, double velocity){
         if(right && this.right){
 
             if(this.jump || this.fall){
@@ -172,7 +171,7 @@ public class Player implements Entity {
     /**
      * If the player moves forward, update the image accordingly
      */
-    public void updateImageRight(){
+    private void updateImageRight(){
 
         int step = (int) this.x;
         if(step % 4 == 0){
@@ -193,7 +192,7 @@ public class Player implements Entity {
     /**
      * If the player moves backward, update the image accordingly
      */
-    public void updateImageLeft(){
+    private void updateImageLeft(){
         int step = (int) this.x;
         if(step % 4 == 0){
             this.imagePath = "./src/main/resources/ch_walk5.png";
@@ -267,10 +266,9 @@ public class Player implements Entity {
     }
 
     /**
-     * Set the y position of player (when it jumps basically)
-     * @return returns true when it first jumps and false until it lands to the ground
+     * Set the y position of player (when it jumps basically or fall)
      */
-    public boolean setYPos(){
+    private void setYPos(){
 
         if(!jump && !fall){
 
@@ -279,7 +277,6 @@ public class Player implements Entity {
             jump = true;
             fall = false;
 
-            return true;
         }
 
         if(jump){
@@ -294,7 +291,7 @@ public class Player implements Entity {
                 fall = true;
             }
         }
-        else if(fall){
+        else if(fall && !jump){
             if(y+height + jumpVelocity >= floorHeight){
                 y = floorHeight-height;
                 counter = 0;
@@ -309,9 +306,12 @@ public class Player implements Entity {
         }
 
 
-        return false;
     }
 
+    /**
+     *
+     * @return return life of character
+     */
     public int getLife(){
         return life;
     }
@@ -335,7 +335,7 @@ public class Player implements Entity {
         }
     }
 
-    public void setStandImage(String s){
+    private void setStandImage(String s){
         this.imagePath = s;
     }
 
@@ -364,10 +364,14 @@ public class Player implements Entity {
         this.fall = fall;
     }
 
-    public void setFloorHeight(double floorHeight){
+    public void setFloor(double floorHeight){
         this.floorHeight = floorHeight;
     }
 
+    /**
+     * Note this is not the maximum jump height
+     * @param counter set the current jump height
+     */
     public void setCounter(double counter){
         this.counter = counter;
     }
@@ -376,6 +380,10 @@ public class Player implements Entity {
         this.levelWidth = levelWidth;
     }
 
+    /**
+     *
+     * @return get imageView of the entity
+     */
     public ImageView getNode(){
         return this.node;
     }

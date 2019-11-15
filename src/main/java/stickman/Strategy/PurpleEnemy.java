@@ -1,31 +1,32 @@
 package stickman.Strategy;
 
 import stickman.Entity.Enemy;
-import stickman.Strategy.EnemyStrat;
+
 
 public class PurpleEnemy implements EnemyStrat {
 
     private Enemy enemy;
-    private double velocity = 30 *0.017;
+    private double velocity;
     private double levelHeight;
-    private double levelWidth;
 
-    public PurpleEnemy(double levelHeight, double levelWidth, Enemy enemy){
-        this.enemy = enemy;
+
+    public PurpleEnemy(double levelHeight){
+
+        velocity = 30 *0.017;
         this.levelHeight = levelHeight;
-        this.levelWidth = levelWidth;
+
     }
 
 
     public void move(){
-        this.setX();
         this.setY();
     }
 
-    private void setX(){
 
-    }
 
+    /**
+     * Moves up and down: if it touches the ground moves up, if it reaches the half of the levelHeight moves down
+     */
     private void setY(){
         double pos = enemy.getYPos()+ enemy.getHeight();
 
@@ -55,6 +56,10 @@ public class PurpleEnemy implements EnemyStrat {
                 enemy.setJump(false);
             }
         }
+    }
+
+    public void addEnemy(Enemy enemy){
+        this.enemy = enemy;
     }
 
 }
